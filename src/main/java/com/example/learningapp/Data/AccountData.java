@@ -16,4 +16,3 @@ public class AccountData implements Serializable {
         return password;
     }
 }
-
