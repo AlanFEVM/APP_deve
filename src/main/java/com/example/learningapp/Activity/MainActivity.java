@@ -98,7 +98,6 @@ public class MainActivity extends AppCompatActivity {
         t1.setName("Teacher 1");
         my_db.addTeacher(t1);
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -27,16 +27,32 @@ public class Sign_Up_Activity extends AppCompatActivity {
     Button back;
     TextView hint;
     public int formCheck(){
-
+        return 1;
     }
     public void Logback(){
         Intent back = new Intent(this,MainActivity.class);
         startActivity(back);
     }
+
+    private void sign_up() {
+        String my_account = account.getText().toString();
+        String my_name = name.getText().toString();
+        String my_password = password.getText().toString();
+
+        password_2.getText().toString();
+        age.getText().toString();
+        code.getText().toString();
+
+    }
     View.OnClickListener backListener = v -> Logback();
+
     View.OnClickListener signListener = v -> {
         formCheck();
+        sign_up();
+        Logback();
     };
+
+
     public void setListener(){
         back.setOnClickListener(backListener);
         signup.setOnClickListener(signListener);
@@ -62,5 +78,6 @@ public class Sign_Up_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         findViews();
         setListener();
+        hint.setVisibility(View.INVISIBLE);
     }
 }
