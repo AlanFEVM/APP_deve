@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Learning APP</string>
+    <string name="isTeacher">我是教师</string>
+    <string name="isStudent">我是学生</string>
+    <string name="Input_User_Hinit">输入用户名</string>
+    <string name="Input_User_Hint">输入用户名</string>
+</resources>
