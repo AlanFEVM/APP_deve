@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="Learning Simulator"
+                android:text="学习通模拟器"
                 android:textColor="@color/black"
                 android:textSize="34sp" />
 
@@ -77,20 +77,11 @@
                 android:background="@color/InputAreaColor"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/Account_name_T"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_weight="1"
-                    android:text="@string/Input_User_Hinit"
-                    android:textSize="20sp" />
-
-                <EditText
+                <com.example.learningapp.CustomViews.HideHintEditText
                     android:id="@+id/Account"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="30dp"
+                    android:layout_marginHorizontal="30dp"
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/Input_User_Hint"
@@ -106,20 +97,11 @@
                 android:background="@color/InputAreaColor"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/Password_T"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_weight="1"
-                    android:text="输入密码    "
-                    android:textSize="20sp" />
-
-                <EditText
+                <com.example.learningapp.CustomViews.HideHintEditText
                     android:id="@+id/Password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="30dp"
+                    android:layout_marginHorizontal="30dp"
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="输入密码"

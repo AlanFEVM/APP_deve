@@ -10,10 +10,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.learningapp.Data.AccountData;
-import com.example.learningapp.Data.DataBase;
-import com.example.learningapp.Data.Student;
-import com.example.learningapp.Data.Teacher;
+import com.example.learningapp.CustomViews.HideHintEditText;
+import com.example.learningapp.Data.UserDataBase.AccountData;
+import com.example.learningapp.Data.UserDataBase.UserDataBase;
+import com.example.learningapp.Data.UserDataBase.Student;
+import com.example.learningapp.Data.UserDataBase.Teacher;
 import com.example.learningapp.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,9 +22,9 @@ public class MainActivity extends AppCompatActivity {
     public Button signup;
     public RadioButton T_login;
     public RadioButton S_login;
-    public EditText account;
-    public EditText passW;
-    public DataBase my_db = new DataBase();
+    public HideHintEditText account;
+    public HideHintEditText passW;
+    public UserDataBase my_db = new UserDataBase();
 
     View.OnClickListener l_listener = v -> goActivity();
     View.OnClickListener S_listener = v -> goSignup();
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void goSignup() {
         Intent my_intent = new Intent(this, Sign_Up_Activity.class);
+        my_intent.putExtra("udb",my_db);
         startActivity(my_intent);
     }
 

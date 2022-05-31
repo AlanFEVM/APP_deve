@@ -10,52 +10,116 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.learningapp.Data.UserDataBase.UserDataBase;
 import com.example.learningapp.R;
+import com.example.learningapp.CustomViews.*;
 
 public class Sign_Up_Activity extends AppCompatActivity {
-    EditText account;
-    EditText name;
-    EditText password;
-    EditText password_2;
+    HideHintEditText account;
+    HideHintEditText name;
+    HideHintEditText password;
+    HideHintEditText password_2;
+    HideHintEditText age;
+    MultiHintEditText code;
     RadioButton teacher;
     RadioButton student;
     RadioButton male;
     RadioButton female;
-    EditText age;
-    EditText code;
     Button signup;
     Button back;
     TextView hint;
+    UserDataBase my_udb;
     public int formCheck(){
-        return 1;
+        String my_account = account.getText().toString();
+        String my_name = name.getText().toString();
+        String my_password = password.getText().toString();
+        String my_password_2 = password_2.getText().toString();
+        String my_age = age.getText().toString();
+        String my_code = code.getText().toString();
+        if(my_account.matches("")){
+            return 0;
+        }
+        if(my_name.matches("")){
+            return 0;
+        }
+        if(my_password.matches("")){
+            return 0;
+        }
+        if(my_password_2.matches("")){
+            return 0;
+        }
+        if(my_age.matches("")){
+            return 0;
+        }
+        if(my_code.matches("")){
+            return 0;
+        }
+        if(!teacher.isChecked() && !student.isChecked()){
+            return 0;
+        }
+        if(!male.isChecked() && !female.isChecked()){
+            return 0;
+        }
+        if(!my_password.matches(my_password_2)){
+            return 1;
+        }
+        return 2;
     }
     public void Logback(){
         Intent back = new Intent(this,MainActivity.class);
         startActivity(back);
     }
 
-    private void sign_up() {
-        String my_account = account.getText().toString();
-        String my_name = name.getText().toString();
-        String my_password = password.getText().toString();
-
-        password_2.getText().toString();
-        age.getText().toString();
-        code.getText().toString();
-
+    private int sign_up() {
+        if(formCheck() == 0){
+            hint.setText("请完成所有表格");
+            hint.setVisibility(View.VISIBLE);
+            return 0;
+        }
+        if(formCheck() == 1){
+            hint.setText("两次输入的密码不匹配");
+            hint.setVisibility(View.VISIBLE);
+            return 0;
+        }
+        if(formCheck() == 2){
+            if(my_udb.match_account(account.getText().toString())) {
+                return 1;
+            }
+        }
+        return 2;
     }
+    private void create_account() {
+        System.out.println("success");
+    }
+
     View.OnClickListener backListener = v -> Logback();
 
     View.OnClickListener signListener = v -> {
-        formCheck();
-        sign_up();
-        Logback();
+        if(sign_up() == 1){
+            hint.setText("用户名已存在");
+            hint.setVisibility(View.VISIBLE);
+        }
+        else{
+            create_account();
+            Logback();
+        }
     };
-
+    View.OnClickListener Tlistener = v -> {
+        code.setUseOtherHint(true);
+        code.set_my_hint(1);
+        code.refresh_hint();
+    };
+    View.OnClickListener Slistener = v -> {
+        code.setUseOtherHint(true);
+        code.set_my_hint(2);
+        code.refresh_hint();
+    };
 
     public void setListener(){
         back.setOnClickListener(backListener);
         signup.setOnClickListener(signListener);
+        teacher.setOnClickListener(Tlistener);
+        student.setOnClickListener(Slistener);
     }
     public void findViews(){
         account = findViewById(R.id.signup_account);
@@ -76,8 +140,16 @@ public class Sign_Up_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
         findViews();
         setListener();
+        //setup dataBase
+        my_udb = (UserDataBase) getIntent().getSerializableExtra("database");
         hint.setVisibility(View.INVISIBLE);
+
+        code.add_hint(1,"请填写教师编号");
+        code.add_hint(2,"请输入学号");
+
+
     }
 }

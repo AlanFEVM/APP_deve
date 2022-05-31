@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.learningapp.Data.DataBase;
+import com.example.learningapp.Data.UserDataBase.UserDataBase;
 import com.example.learningapp.R;
 
 public class Student_Activity extends AppCompatActivity {
@@ -18,7 +18,7 @@ public class Student_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student);
         Intent lastIn = getIntent();
-        DataBase my_database = (DataBase) lastIn.getSerializableExtra("database");
+        UserDataBase my_database = (UserDataBase) lastIn.getSerializableExtra("database");
         int StudentNumber = lastIn.getIntExtra("StudentNum", -1);
         if (StudentNumber == -1) {
             Toast.makeText(this, "登录错误，请返回重试", Toast.LENGTH_SHORT).show();

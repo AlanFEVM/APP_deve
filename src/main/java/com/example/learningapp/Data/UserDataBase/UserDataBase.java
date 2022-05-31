@@ -1,13 +1,28 @@
-package com.example.learningapp.Data;
+package com.example.learningapp.Data.UserDataBase;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class DataBase implements Serializable {
-    private ArrayList<Student> myStudents = new ArrayList<>();
-    private ArrayList<Teacher> myTeachers = new ArrayList<>();
+public class UserDataBase implements Serializable {
+    private final ArrayList<Student> myStudents = new ArrayList<>();
+    private final ArrayList<Teacher> myTeachers = new ArrayList<>();
 
-    public DataBase() {
+    public UserDataBase() {
+    }
+
+    public boolean match_account(String account_name){
+        //true if match a account
+        for(int i = 0;i < myStudents.size(); i++){
+            if(myStudents.get(i).getAccountData().getAccount_name().matches(account_name)){
+                return true;
+            }
+        }
+        for(int i = 0;i < myTeachers.size(); i++){
+            if(myTeachers.get(i).getAccountData().getAccount_name().matches(account_name)){
+                return true;
+            }
+        }
+        return false;
     }
 
     public void addTeacher(Teacher T) {

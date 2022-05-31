@@ -4,4 +4,9 @@
     <string name="isStudent">我是学生</string>
     <string name="Input_User_Hinit">输入用户名</string>
     <string name="Input_User_Hint">输入用户名</string>
+    <string name="signup_account_hint">输入您的账号</string>
+    <string name="signup_name_hint">输入您的姓名</string>
+    <string name="signup_hint_password">输入您的密码</string>
+    <string name="signup_hint_password_2">请再次确认密码</string>
+    <string name="signup_code_initial_hint">请先选择身份</string>
 </resources>

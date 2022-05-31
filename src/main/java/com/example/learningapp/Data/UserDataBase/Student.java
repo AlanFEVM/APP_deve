@@ -1,4 +1,4 @@
-package com.example.learningapp.Data;
+package com.example.learningapp.Data.UserDataBase;
 
 import java.io.Serializable;
 

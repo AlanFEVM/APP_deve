@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.learningapp.Data.DataBase;
+import com.example.learningapp.Data.UserDataBase.UserDataBase;
 import com.example.learningapp.R;
 
 public class Teacher_Activity extends AppCompatActivity {
@@ -19,7 +19,7 @@ public class Teacher_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_teacher);
 
         Intent lastIn = getIntent();
-        DataBase my_database = (DataBase) lastIn.getSerializableExtra("database");
+        UserDataBase my_database = (UserDataBase) lastIn.getSerializableExtra("database");
         int TeacherNumber = lastIn.getIntExtra("TeacherNum", -1);
 
         if (TeacherNumber == -1) {
