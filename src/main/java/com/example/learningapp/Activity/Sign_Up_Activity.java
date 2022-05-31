@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -95,11 +96,14 @@ public class Sign_Up_Activity extends AppCompatActivity {
     View.OnClickListener backListener = v -> Logback();
 
     View.OnClickListener signListener = v -> {
-        if(sign_up() == 1){
+        int status = sign_up();
+        if(status == 1){
             hint.setText("用户名已存在");
             hint.setVisibility(View.VISIBLE);
+            return;
         }
-        else{
+        if(status == 2) {
+            Toast.makeText(this,"用户创建成功",Toast.LENGTH_LONG);
             create_account();
             Logback();
         }
