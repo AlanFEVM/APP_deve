@@ -155,6 +155,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="20dp"
                     android:gravity="center"
+                    android:inputType="number"
                     android:hint="修改年龄" />
 
                 <com.example.learningapp.CustomViews.HideHintEditText
@@ -163,6 +164,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="20dp"
                     android:gravity="center"
+                    android:inputType="number"
                     android:hint="修改学号" />
 
 
