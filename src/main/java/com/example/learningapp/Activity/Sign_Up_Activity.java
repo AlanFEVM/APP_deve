@@ -69,11 +69,18 @@ public class Sign_Up_Activity extends AppCompatActivity {
         }
         return 2;
     }
-    public void Logback(){
-        Intent back = new Intent(this,MainActivity.class);
-        startActivity(back);
+    public void LogIn(){
+        Intent log_s = new Intent(this,Student_Activity.class);
+        Intent log_t = new Intent(this,Teacher_Activity.class);
+        if(teacher.isChecked()){
+            log_t.putExtra("teacher_index",my_Data.user_data.getTeacher_last_index());
+            startActivity(log_t);
+        }
+        if(student.isChecked()){
+            log_s.putExtra("student_index",my_Data.user_data.getStudent_last_index());
+            startActivity(log_s);
+        }
     }
-
     private int sign_up() {
         if(formCheck() == 0){
             hint.setText("请完成所有表格");
@@ -118,11 +125,11 @@ public class Sign_Up_Activity extends AppCompatActivity {
             new_s.setStudent_code(my_code);
             my_Data.user_data.addStudent(new_s);
         }
-        System.out.println("success");
     }
-
-    View.OnClickListener backListener = v -> Logback();
-
+    private void LogBack() {
+        startActivity(new Intent(this,MainActivity.class));
+    }
+    View.OnClickListener backListener = v -> LogBack();
     View.OnClickListener signListener = v -> {
         int status = sign_up();
         if(status == 1){
@@ -133,7 +140,7 @@ public class Sign_Up_Activity extends AppCompatActivity {
         if(status == 2) {
             Toast.makeText(this,"用户创建成功",Toast.LENGTH_LONG);
             create_account();
-            Logback();
+            LogIn();
         }
     };
     View.OnClickListener Tlistener = v -> {
@@ -146,7 +153,6 @@ public class Sign_Up_Activity extends AppCompatActivity {
         code.set_my_hint(2);
         code.refresh_hint();
     };
-
     public void setListener(){
         back.setOnClickListener(backListener);
         signup.setOnClickListener(signListener);

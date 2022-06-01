@@ -24,6 +24,15 @@ public class UserDataBase implements Serializable {
         }
         return false;
     }
+    public int getTeacher_last_index(){
+        int i = myTeachers.size();
+        return i - 1;
+    }
+
+    public int getStudent_last_index(){
+        int i = myStudents.size();
+        return i -1;
+    }
 
     public void addTeacher(Teacher T) {
         myTeachers.add(T);

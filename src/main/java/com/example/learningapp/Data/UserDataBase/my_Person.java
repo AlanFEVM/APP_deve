@@ -32,8 +32,8 @@ public class my_Person implements Serializable{
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
+    public String getAge() {
+        return String.valueOf(age);
     }
 
     public void setAge(int age) {

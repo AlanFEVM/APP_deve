@@ -9,7 +9,7 @@
     <FrameLayout
         android:id="@+id/S_dashBoard"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@color/dashBoardColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -17,51 +17,29 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
-
             <TextView
-                android:id="@+id/s_d_account"
+                android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="账号"
-                android:textSize="25sp" />
-
-            <TextView
-                android:id="@+id/s_d_name"
-                android:layout_width="match_parent"
+                android:text="Student"
+                android:gravity="center"
+                android:textSize="36sp" />
+            <Button
+                android:layout_gravity="bottom"
+                android:id="@+id/student_EditInfo_button"
                 android:layout_height="wrap_content"
-                android:text="姓名"
-                android:textSize="25sp" />
-
-            <TextView
-                android:id="@+id/s_d_age"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="年龄"
-                android:textSize="25sp" />
-
-            <TextView
-                android:id="@+id/s_d_student_code"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="学生编号"
-                android:textSize="25sp" />
+                android:backgroundTint="@color/LoginButtonColor"
+                android:text="查看个人信息"
+                android:layout_marginHorizontal="15dp"
+                android:textColor="@color/LoginButtonTextColor"
+                android:textSize="20sp"
+                android:layout_width="match_parent"/>
 
         </LinearLayout>
+
     </FrameLayout>
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Student"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.977" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

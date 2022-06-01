@@ -3,45 +3,37 @@ package com.example.learningapp.Activity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.learningapp.Data.UserDataBase.UserDataBase;
-import com.example.learningapp.Data.my_Data;
 import com.example.learningapp.R;
 
 public class Teacher_Activity extends AppCompatActivity {
+    int Teacher_index;
+    Button Edit_info;
+    Intent lastIn;
+    View.OnClickListener E_Listener = v -> {
+        Intent to_info = new Intent(this,EditInfoActivity.class);
+        to_info.putExtra("type",1);
+        to_info.putExtra("teacher_index", Teacher_index);
+        startActivity(to_info);
+    };
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher);
-
-        Intent lastIn = getIntent();
-        int TeacherNumber = lastIn.getIntExtra("teacher_index", -1);
-
-        if (TeacherNumber == -1) {
+        Edit_info = findViewById(R.id.teacher_EditInfo_button);
+        Edit_info.setOnClickListener(E_Listener);
+        lastIn = getIntent();
+        Teacher_index = lastIn.getIntExtra("teacher_index", -1);
+        if (Teacher_index == -1) {
             Toast.makeText(this, "登录错误，请返回重试", Toast.LENGTH_SHORT).show();
             Intent back = new Intent(this, MainActivity.class);
             startActivity(back);
         }
-
-        TextView account = findViewById(R.id.t_d_account);
-        TextView age = findViewById(R.id.t_d_age);
-        TextView name = findViewById(R.id.t_d_name);
-        TextView code = findViewById(R.id.t_d_teacher_code);
-
-        String t_account = my_Data.user_data.getTeacher(TeacherNumber).getAccountData().getAccount_name();
-        int t_age = my_Data.user_data.getTeacher(TeacherNumber).getAge();
-        String t_name = my_Data.user_data.getTeacher(TeacherNumber).getName();
-        String t_code = my_Data.user_data.getTeacher(TeacherNumber).getTeacher_code();
-
-        account.setText("账号:" + t_account);
-        age.setText("年龄：" + Integer.toString(t_age));
-        name.setText("姓名:" + t_name);
-        code.setText("教师编号:" + t_code);
-
     }
 }

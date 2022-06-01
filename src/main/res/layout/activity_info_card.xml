@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.EditInfoActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background2"
+        tools:ignore="ExtraText">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+
+            <TextView
+                android:id="@+id/info_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/info_text_background"
+                android:gravity="center"
+                android:text="TextView"
+                android:textColor="@color/black"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/info_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/info_text_background"
+                android:gravity="center"
+                android:text="account"
+                android:textColor="@color/black"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/info_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/info_text_background"
+                android:gravity="center"
+                android:text="name"
+                android:textColor="@color/black"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/info_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/info_text_background"
+                android:gravity="center"
+                android:text="gender"
+                android:textColor="@color/black"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/info_age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/info_text_background"
+                android:gravity="center"
+                android:text="age"
+                android:textColor="@color/black"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/info_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/info_text_background"
+                android:gravity="center"
+                android:text="code"
+                android:textColor="@color/black"
+                android:textSize="25sp" />
+
+            <LinearLayout
+                android:id="@+id/info_Changepwd_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="50dp"
+                android:visibility="gone"
+                android:orientation="vertical">
+                <com.example.learningapp.CustomViews.HideHintEditText
+                    android:id="@+id/info_chanegpwd_old"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="20dp"
+                    android:gravity="center"
+                    android:hint="输入旧密码"
+                    />
+                <com.example.learningapp.CustomViews.HideHintEditText
+                    android:id="@+id/info_chanegpwd_new"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="20dp"
+                    android:gravity="center"
+                    android:hint="输入新密码"
+                    />
+                <com.example.learningapp.CustomViews.HideHintEditText
+                    android:id="@+id/info_chanegpwd_new2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="20dp"
+                    android:gravity="center"
+                    android:hint="确认新密码"
+                    />
+                <Button
+                    android:id="@+id/info_confirm_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/LoginButtonColor"
+                    android:text="确认修改"
+                    android:textColor="@color/LoginButtonTextColor"
+                    android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/info_Changepassword_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/red"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/info_EditInfo_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="50dp"
+                android:visibility="gone">
+
+                <com.example.learningapp.CustomViews.HideHintEditText
+                    android:id="@+id/info_changeName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="20dp"
+                    android:gravity="center"
+                    android:hint="修改姓名" />
+
+                <com.example.learningapp.CustomViews.HideHintEditText
+                    android:id="@+id/info_changeAge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="20dp"
+                    android:gravity="center"
+                    android:hint="修改年龄" />
+
+                <com.example.learningapp.CustomViews.HideHintEditText
+                    android:id="@+id/info_changeCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="20dp"
+                    android:gravity="center"
+                    android:hint="修改学号" />
+
+
+
+                <Button
+                    android:id="@+id/info_confirm_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/LoginButtonColor"
+                    android:text="确认修改"
+                    android:textColor="@color/LoginButtonTextColor"
+                    android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/info_Changeinfo_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/red"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/info_EditInfo_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/LoginButtonColor"
+                    android:text="修改信息"
+                    android:textColor="@color/LoginButtonTextColor"
+                    android:layout_marginHorizontal="5dp"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/info_Changepwd_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/LoginButtonColor"
+                    android:text="修改密码"
+                    android:textColor="@color/LoginButtonTextColor"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
