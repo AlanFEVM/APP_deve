@@ -4,17 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.learningapp.CustomViews.HideHintEditText;
-import com.example.learningapp.Data.UserDataBase.AccountData;
-import com.example.learningapp.Data.UserDataBase.UserDataBase;
-import com.example.learningapp.Data.UserDataBase.Student;
-import com.example.learningapp.Data.UserDataBase.Teacher;
+import com.example.learningapp.Data.my_Data;
 import com.example.learningapp.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     public RadioButton S_login;
     public HideHintEditText account;
     public HideHintEditText passW;
-    public UserDataBase my_db = new UserDataBase();
 
     View.OnClickListener l_listener = v -> goActivity();
     View.OnClickListener S_listener = v -> goSignup();
@@ -43,31 +38,28 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (T_login.isChecked()) {
-            int t = my_db.findTeacher(my_Account, password);
+            int t = my_Data.user_data.findTeacher(my_Account, password);
             if (t == -1) {
                 Toast.makeText(this, "账号不存在或密码错误", Toast.LENGTH_SHORT).show();
                 return;
             }
-            to_Teacher.putExtra("TeacherNum", t);
-            to_Teacher.putExtra("database", my_db);
+            to_Teacher.putExtra("teacher_index",t);
             startActivity(to_Teacher);
         }
 
         if (S_login.isChecked()) {
-            int s = my_db.findStudent(my_Account, password);
+            int s = my_Data.user_data.findStudent(my_Account, password);
             if (s == -1) {
                 Toast.makeText(this, "账号不存在或密码错误", Toast.LENGTH_SHORT).show();
                 return;
             }
-            to_Student.putExtra("StudentNum", s);
-            to_Student.putExtra("database", my_db);
+            to_Student.putExtra("student_index",s);
             startActivity(to_Student);
         }
     }
 
     public void goSignup() {
         Intent my_intent = new Intent(this, Sign_Up_Activity.class);
-        my_intent.putExtra("udb",my_db);
         startActivity(my_intent);
     }
 
@@ -83,29 +75,14 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(l_listener);
     }
 
-    public void addSomeTestSubject() {
-        Student s1 = new Student();
-        AccountData s_a_1 = new AccountData("student1", "123456");
-        s1.setAccountData(s_a_1);
-        s1.setStudent_code("20201212");
-        s1.setAge(20);
-        s1.setName("TestSubject01");
-        my_db.addStudent(s1);
-
-        Teacher t1 = new Teacher();
-        AccountData t_a_1 = new AccountData("teacher1", "123456");
-        t1.setAccountData(t_a_1);
-        t1.setAge(30);
-        t1.setTeacher_code("2002155");
-        t1.setName("Teacher 1");
-        my_db.addTeacher(t1);
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if(my_Data.user_data == null){
+            my_Data.initial_data_base();
+        }
         find_view();
         setListener();
-        addSomeTestSubject();
     }
 }

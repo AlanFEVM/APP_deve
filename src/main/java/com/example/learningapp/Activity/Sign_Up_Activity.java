@@ -4,16 +4,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.learningapp.Data.UserDataBase.UserDataBase;
+import com.example.learningapp.Data.UserDataBase.AccountData;
+import com.example.learningapp.Data.UserDataBase.Student;
+import com.example.learningapp.Data.UserDataBase.Teacher;
+import com.example.learningapp.Data.my_Data;
 import com.example.learningapp.R;
 import com.example.learningapp.CustomViews.*;
+
+import java.util.Objects;
 
 public class Sign_Up_Activity extends AppCompatActivity {
     HideHintEditText account;
@@ -29,14 +33,13 @@ public class Sign_Up_Activity extends AppCompatActivity {
     Button signup;
     Button back;
     TextView hint;
-    UserDataBase my_udb;
     public int formCheck(){
         String my_account = account.getText().toString();
         String my_name = name.getText().toString();
         String my_password = password.getText().toString();
         String my_password_2 = password_2.getText().toString();
         String my_age = age.getText().toString();
-        String my_code = code.getText().toString();
+        String my_code = Objects.requireNonNull(code.getText()).toString();
         if(my_account.matches("")){
             return 0;
         }
@@ -83,13 +86,38 @@ public class Sign_Up_Activity extends AppCompatActivity {
             return 0;
         }
         if(formCheck() == 2){
-            if(my_udb.match_account(account.getText().toString())) {
+            if(my_Data.user_data.match_account(account.getText().toString())) {
                 return 1;
             }
         }
         return 2;
     }
     private void create_account() {
+        Teacher new_t;
+        Student new_s;
+        String my_account = account.getText().toString();
+        String my_name = name.getText().toString();
+        String my_password = password.getText().toString();
+        String my_age = age.getText().toString();
+        String my_code = Objects.requireNonNull(code.getText()).toString();
+        if(teacher.isChecked()){
+            new_t = new Teacher();
+            new_t.setGender(male.isChecked());
+            new_t.setName(my_name);
+            new_t.setAccountData(new AccountData(my_account,my_password));
+            new_t.setAge(Integer.parseInt(my_age));
+            new_t.setTeacher_code(my_code);
+            my_Data.user_data.addTeacher(new_t);
+        }
+        if(student.isChecked()){
+            new_s = new Student();
+            new_s.setGender(male.isChecked());
+            new_s.setName(my_name);
+            new_s.setAccountData(new AccountData(my_account,my_password));
+            new_s.setAge(Integer.parseInt(my_age));
+            new_s.setStudent_code(my_code);
+            my_Data.user_data.addStudent(new_s);
+        }
         System.out.println("success");
     }
 
@@ -144,16 +172,11 @@ public class Sign_Up_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-
         findViews();
         setListener();
         //setup dataBase
-        my_udb = (UserDataBase) getIntent().getSerializableExtra("database");
         hint.setVisibility(View.INVISIBLE);
-
         code.add_hint(1,"请填写教师编号");
         code.add_hint(2,"请输入学号");
-
-
     }
 }
