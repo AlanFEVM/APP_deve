@@ -106,7 +106,7 @@
                 android:layout_height="75dp"
                 android:ems="10"
                 android:hint="@string/signup_code_initial_hint"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 android:text="" />
 
             <TextView
