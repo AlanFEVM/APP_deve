@@ -9,34 +9,36 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:background="@color/dashBoardColor"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/dashBoardColor"
             android:orientation="vertical">
+
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/teacher_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Teacher"
                 android:gravity="center"
+                android:text="Teacher"
                 android:textSize="30sp" />
 
             <Button
-                android:layout_gravity="bottom"
                 android:id="@+id/teacher_EditInfo_button"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginHorizontal="15dp"
                 android:backgroundTint="@color/LoginButtonColor"
                 android:text="查看个人信息"
-                android:layout_marginHorizontal="15dp"
                 android:textColor="@color/LoginButtonTextColor"
-                android:textSize="20sp"
-                android:layout_width="match_parent"/>
+                android:textSize="20sp" />
 
         </LinearLayout>
 

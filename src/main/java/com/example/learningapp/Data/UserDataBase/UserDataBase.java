@@ -10,28 +10,29 @@ public class UserDataBase implements Serializable {
     public UserDataBase() {
     }
 
-    public boolean match_account(String account_name){
+    public boolean match_account(String account_name) {
         //true if match a account
-        for(int i = 0;i < myStudents.size(); i++){
-            if(myStudents.get(i).getAccountData().getAccount_name().matches(account_name)){
+        for (int i = 0; i < myStudents.size(); i++) {
+            if (myStudents.get(i).getAccountData().getAccount_name().matches(account_name)) {
                 return true;
             }
         }
-        for(int i = 0;i < myTeachers.size(); i++){
-            if(myTeachers.get(i).getAccountData().getAccount_name().matches(account_name)){
+        for (int i = 0; i < myTeachers.size(); i++) {
+            if (myTeachers.get(i).getAccountData().getAccount_name().matches(account_name)) {
                 return true;
             }
         }
         return false;
     }
-    public int getTeacher_last_index(){
+
+    public int getTeacher_last_index() {
         int i = myTeachers.size();
         return i - 1;
     }
 
-    public int getStudent_last_index(){
+    public int getStudent_last_index() {
         int i = myStudents.size();
-        return i -1;
+        return i - 1;
     }
 
     public void addTeacher(Teacher T) {

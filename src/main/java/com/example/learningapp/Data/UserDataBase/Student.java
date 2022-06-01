@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Student extends my_Person implements Serializable {
     private String student_code;
+
     public Student() {
         super();
     }

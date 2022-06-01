@@ -10,12 +10,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.learningapp.CustomViews.HideHintEditText;
+import com.example.learningapp.CustomViews.MultiHintEditText;
 import com.example.learningapp.Data.UserDataBase.AccountData;
 import com.example.learningapp.Data.UserDataBase.Student;
 import com.example.learningapp.Data.UserDataBase.Teacher;
 import com.example.learningapp.Data.my_Data;
 import com.example.learningapp.R;
-import com.example.learningapp.CustomViews.*;
 
 import java.util.Objects;
 
@@ -33,72 +34,76 @@ public class Sign_Up_Activity extends AppCompatActivity {
     Button signup;
     Button back;
     TextView hint;
-    public int formCheck(){
+
+    public int formCheck() {
         String my_account = account.getText().toString();
         String my_name = name.getText().toString();
         String my_password = password.getText().toString();
         String my_password_2 = password_2.getText().toString();
         String my_age = age.getText().toString();
         String my_code = Objects.requireNonNull(code.getText()).toString();
-        if(my_account.matches("")){
+        if (my_account.matches("")) {
             return 0;
         }
-        if(my_name.matches("")){
+        if (my_name.matches("")) {
             return 0;
         }
-        if(my_password.matches("")){
+        if (my_password.matches("")) {
             return 0;
         }
-        if(my_password_2.matches("")){
+        if (my_password_2.matches("")) {
             return 0;
         }
-        if(my_age.matches("")){
+        if (my_age.matches("")) {
             return 0;
         }
-        if(my_code.matches("")){
+        if (my_code.matches("")) {
             return 0;
         }
-        if(!teacher.isChecked() && !student.isChecked()){
+        if (!teacher.isChecked() && !student.isChecked()) {
             return 0;
         }
-        if(!male.isChecked() && !female.isChecked()){
+        if (!male.isChecked() && !female.isChecked()) {
             return 0;
         }
-        if(!my_password.matches(my_password_2)){
+        if (!my_password.matches(my_password_2)) {
             return 1;
         }
         return 2;
     }
-    public void LogIn(){
-        Intent log_s = new Intent(this,Student_Activity.class);
-        Intent log_t = new Intent(this,Teacher_Activity.class);
-        if(teacher.isChecked()){
-            log_t.putExtra("teacher_index",my_Data.user_data.getTeacher_last_index());
+
+    public void LogIn() {
+        Intent log_s = new Intent(this, Student_Activity.class);
+        Intent log_t = new Intent(this, Teacher_Activity.class);
+        if (teacher.isChecked()) {
+            log_t.putExtra("teacher_index", my_Data.user_data.getTeacher_last_index());
             startActivity(log_t);
         }
-        if(student.isChecked()){
-            log_s.putExtra("student_index",my_Data.user_data.getStudent_last_index());
+        if (student.isChecked()) {
+            log_s.putExtra("student_index", my_Data.user_data.getStudent_last_index());
             startActivity(log_s);
         }
     }
+
     private int sign_up() {
-        if(formCheck() == 0){
+        if (formCheck() == 0) {
             hint.setText("请完成所有表格");
             hint.setVisibility(View.VISIBLE);
             return 0;
         }
-        if(formCheck() == 1){
+        if (formCheck() == 1) {
             hint.setText("两次输入的密码不匹配");
             hint.setVisibility(View.VISIBLE);
             return 0;
         }
-        if(formCheck() == 2){
-            if(my_Data.user_data.match_account(account.getText().toString())) {
+        if (formCheck() == 2) {
+            if (my_Data.user_data.match_account(account.getText().toString())) {
                 return 1;
             }
         }
         return 2;
     }
+
     private void create_account() {
         Teacher new_t;
         Student new_s;
@@ -107,38 +112,40 @@ public class Sign_Up_Activity extends AppCompatActivity {
         String my_password = password.getText().toString();
         String my_age = age.getText().toString();
         String my_code = Objects.requireNonNull(code.getText()).toString();
-        if(teacher.isChecked()){
+        if (teacher.isChecked()) {
             new_t = new Teacher();
             new_t.setGender(male.isChecked());
             new_t.setName(my_name);
-            new_t.setAccountData(new AccountData(my_account,my_password));
+            new_t.setAccountData(new AccountData(my_account, my_password));
             new_t.setAge(Integer.parseInt(my_age));
             new_t.setTeacher_code(my_code);
             my_Data.user_data.addTeacher(new_t);
         }
-        if(student.isChecked()){
+        if (student.isChecked()) {
             new_s = new Student();
             new_s.setGender(male.isChecked());
             new_s.setName(my_name);
-            new_s.setAccountData(new AccountData(my_account,my_password));
+            new_s.setAccountData(new AccountData(my_account, my_password));
             new_s.setAge(Integer.parseInt(my_age));
             new_s.setStudent_code(my_code);
             my_Data.user_data.addStudent(new_s);
         }
     }
+
     private void LogBack() {
-        startActivity(new Intent(this,MainActivity.class));
+        startActivity(new Intent(this, MainActivity.class));
     }
+
     View.OnClickListener backListener = v -> LogBack();
     View.OnClickListener signListener = v -> {
         int status = sign_up();
-        if(status == 1){
+        if (status == 1) {
             hint.setText("用户名已存在");
             hint.setVisibility(View.VISIBLE);
             return;
         }
-        if(status == 2) {
-            Toast.makeText(this,"用户创建成功",Toast.LENGTH_LONG);
+        if (status == 2) {
+            Toast.makeText(this, "用户创建成功", Toast.LENGTH_LONG);
             create_account();
             LogIn();
         }
@@ -153,13 +160,15 @@ public class Sign_Up_Activity extends AppCompatActivity {
         code.set_my_hint(2);
         code.refresh_hint();
     };
-    public void setListener(){
+
+    public void setListener() {
         back.setOnClickListener(backListener);
         signup.setOnClickListener(signListener);
         teacher.setOnClickListener(Tlistener);
         student.setOnClickListener(Slistener);
     }
-    public void findViews(){
+
+    public void findViews() {
         account = findViewById(R.id.signup_account);
         name = findViewById(R.id.signup_name);
         password = findViewById(R.id.signup_password);
@@ -174,6 +183,7 @@ public class Sign_Up_Activity extends AppCompatActivity {
         back = findViewById(R.id.signup_back);
         hint = findViewById(R.id.signup_hint);
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -182,7 +192,7 @@ public class Sign_Up_Activity extends AppCompatActivity {
         setListener();
         //setup dataBase
         hint.setVisibility(View.INVISIBLE);
-        code.add_hint(1,"请填写教师编号");
-        code.add_hint(2,"请输入学号");
+        code.add_hint(1, "请填写教师编号");
+        code.add_hint(2, "请输入学号");
     }
 }

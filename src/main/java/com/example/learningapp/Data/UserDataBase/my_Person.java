@@ -2,13 +2,13 @@ package com.example.learningapp.Data.UserDataBase;
 
 import java.io.Serializable;
 
-public class my_Person implements Serializable{
+public class my_Person implements Serializable {
     private String name;
     private int age;
     private AccountData accountData; // t -> male. f -> female
 
     public String getGender() {
-        if(gender){
+        if (gender) {
             return "男";
         }
         return "女";
@@ -20,7 +20,7 @@ public class my_Person implements Serializable{
 
     private boolean gender;
 
-    public my_Person(){
+    public my_Person() {
 
     }
 

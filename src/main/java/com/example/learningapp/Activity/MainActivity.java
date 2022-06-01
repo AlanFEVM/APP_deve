@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "账号不存在或密码错误", Toast.LENGTH_SHORT).show();
                 return;
             }
-            to_Teacher.putExtra("teacher_index",t);
+            to_Teacher.putExtra("teacher_index", t);
             startActivity(to_Teacher);
         }
 
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "账号不存在或密码错误", Toast.LENGTH_SHORT).show();
                 return;
             }
-            to_Student.putExtra("student_index",s);
+            to_Student.putExtra("student_index", s);
             startActivity(to_Student);
         }
     }
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if(my_Data.user_data == null){
+        if (my_Data.user_data == null) {
             my_Data.initial_data_base();
         }
         find_view();

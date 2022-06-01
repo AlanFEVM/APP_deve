@@ -19,23 +19,25 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/student_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Student"
                 android:gravity="center"
+                android:text="Student"
                 android:textSize="36sp" />
+
             <Button
-                android:layout_gravity="bottom"
                 android:id="@+id/student_EditInfo_button"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginHorizontal="15dp"
                 android:backgroundTint="@color/LoginButtonColor"
                 android:text="查看个人信息"
-                android:layout_marginHorizontal="15dp"
                 android:textColor="@color/LoginButtonTextColor"
-                android:textSize="20sp"
-                android:layout_width="match_parent"/>
+                android:textSize="20sp" />
 
         </LinearLayout>
 

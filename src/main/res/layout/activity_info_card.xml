@@ -83,53 +83,71 @@
                 android:id="@+id/info_Changepwd_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="50dp"
-                android:visibility="gone"
-                android:orientation="vertical">
+                android:layout_marginHorizontal="25dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
                 <com.example.learningapp.CustomViews.HideHintEditText
                     android:id="@+id/info_chanegpwd_old"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="20dp"
                     android:gravity="center"
-                    android:hint="输入旧密码"
-                    />
+                    android:hint="输入旧密码" />
+
                 <com.example.learningapp.CustomViews.HideHintEditText
                     android:id="@+id/info_chanegpwd_new"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="20dp"
                     android:gravity="center"
-                    android:hint="输入新密码"
-                    />
+                    android:hint="输入新密码" />
+
                 <com.example.learningapp.CustomViews.HideHintEditText
                     android:id="@+id/info_chanegpwd_new2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="20dp"
                     android:gravity="center"
-                    android:hint="确认新密码"
-                    />
-                <Button
-                    android:id="@+id/info_confirm_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="65dp"
-                    android:layout_gravity="bottom"
-                    android:layout_marginHorizontal="15dp"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/LoginButtonColor"
-                    android:text="确认修改"
-                    android:textColor="@color/LoginButtonTextColor"
-                    android:textSize="20sp" />
-                <TextView
-                    android:id="@+id/info_Changepassword_hint"
+                    android:hint="确认新密码" />
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <Button
+                        android:id="@+id/info_password_cancel"
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/LoginButtonColor"
+                        android:text="取消"
+                        android:textColor="@color/LoginButtonTextColor"
+                        android:textSize="20sp" />
+                    <Button
+                        android:id="@+id/info_confirm_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/LoginButtonColor"
+                        android:text="确认修改"
+                        android:textColor="@color/LoginButtonTextColor"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/info_ChangePassword_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text=""
                     android:textColor="@color/red"
-                    android:textSize="20sp"
-                    android:gravity="center"
-                    />
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -137,8 +155,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
+                android:layout_marginHorizontal="25dp"
                 android:orientation="vertical"
-                android:layout_marginHorizontal="50dp"
                 android:visibility="gone">
 
                 <com.example.learningapp.CustomViews.HideHintEditText
@@ -155,8 +173,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="20dp"
                     android:gravity="center"
-                    android:inputType="number"
-                    android:hint="修改年龄" />
+                    android:hint="修改年龄"
+                    android:inputType="number" />
 
                 <com.example.learningapp.CustomViews.HideHintEditText
                     android:id="@+id/info_changeCode"
@@ -164,31 +182,49 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="20dp"
                     android:gravity="center"
-                    android:inputType="number"
-                    android:hint="修改学号" />
+                    android:hint="修改学号"
+                    android:inputType="number" />
 
-
-
-                <Button
-                    android:id="@+id/info_confirm_info"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="65dp"
-                    android:layout_gravity="bottom"
-                    android:layout_marginHorizontal="15dp"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/LoginButtonColor"
-                    android:text="确认修改"
-                    android:textColor="@color/LoginButtonTextColor"
-                    android:textSize="20sp" />
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/info_changeInfoCancel_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/LoginButtonColor"
+                        android:text="取消"
+                        android:textColor="@color/LoginButtonTextColor"
+                        android:textSize="20sp" />
+
+                    <Button
+                        android:id="@+id/info_confirm_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/LoginButtonColor"
+                        android:text="确认修改"
+                        android:textColor="@color/LoginButtonTextColor"
+                        android:textSize="20sp" />
+
+
+                </LinearLayout>
+
+
                 <TextView
                     android:id="@+id/info_Changeinfo_hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text=""
                     android:textColor="@color/red"
-                    android:textSize="20sp"
-                    android:gravity="center"
-                    />
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -203,11 +239,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="65dp"
                     android:layout_gravity="bottom"
+                    android:layout_marginHorizontal="5dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/LoginButtonColor"
                     android:text="修改信息"
                     android:textColor="@color/LoginButtonTextColor"
-                    android:layout_marginHorizontal="5dp"
                     android:textSize="20sp" />
 
                 <Button
