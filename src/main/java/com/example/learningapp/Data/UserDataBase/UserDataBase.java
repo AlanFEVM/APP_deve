@@ -1,5 +1,5 @@
 package com.example.learningapp.Data.UserDataBase;
-
+//一个没用的注释
 import java.io.Serializable;
 import java.util.ArrayList;
 //用户数据库模型
