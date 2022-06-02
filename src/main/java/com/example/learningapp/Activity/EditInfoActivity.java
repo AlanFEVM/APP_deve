@@ -164,6 +164,12 @@ public class EditInfoActivity extends AppCompatActivity {
     View.OnClickListener edit_info_Listener = v -> {
         edit_info_layout.setVisibility(View.VISIBLE);
         change_password_layout.setVisibility(View.GONE);
+        if(Person_type == 0){
+            code_change.setHint("学号");
+        }
+        if(Person_type == 1){
+            code_change.setHint("输入教师编号");
+        }
         autoFillInfo();
     };
     View.OnClickListener pwd_confirm_listener = v -> {

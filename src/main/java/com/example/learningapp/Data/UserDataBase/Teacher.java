@@ -1,8 +1,6 @@
 package com.example.learningapp.Data.UserDataBase;
 
-import java.io.Serializable;
-
-public class Teacher extends my_Person implements Serializable {
+public class Teacher extends my_Person {
     private String teacher_code;
 
     public Teacher() {

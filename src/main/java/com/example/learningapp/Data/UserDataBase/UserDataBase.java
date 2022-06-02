@@ -1,9 +1,9 @@
 package com.example.learningapp.Data.UserDataBase;
-//一个没用的注释
-import java.io.Serializable;
+
 import java.util.ArrayList;
+
 //用户数据库模型
-public class UserDataBase implements Serializable {
+public class UserDataBase {
     private final ArrayList<Student> myStudents = new ArrayList<>();//存放所有学生信息
     private final ArrayList<Teacher> myTeachers = new ArrayList<>();//存放所有教师信息
 

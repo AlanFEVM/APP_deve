@@ -43,10 +43,16 @@ public class Student_Activity extends AppCompatActivity {
             startActivity(back);
         }
 
-        name.setText("Hello" + my_Data.user_data.getStudent(student_index).getName());
+        name.setText("Hello " + my_Data.user_data.getStudent(student_index).getName());
         lastIn = getIntent();
         student_index = lastIn.getIntExtra("student_index", -1);
         edit_info.setOnClickListener(edit_listener);
     }
 
+    @SuppressLint("SetTextI18n")
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        name.setText("Hello " + my_Data.user_data.getStudent(student_index).getName());
+    }
 }

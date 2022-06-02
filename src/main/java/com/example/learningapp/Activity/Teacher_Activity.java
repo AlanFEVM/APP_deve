@@ -30,16 +30,22 @@ public class Teacher_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher);
-        Edit_info = findViewById(R.id.teacher_EditInfo_button);
-        name = findViewById(R.id.teacher_title);
-        Edit_info.setOnClickListener(E_Listener);
-        lastIn = getIntent();
-        name.setText(my_Data.user_data.getTeacher(Teacher_index).getName());
-        Teacher_index = lastIn.getIntExtra("teacher_index", -1);
         if (Teacher_index == -1) {
             Toast.makeText(this, "登录错误，请返回重试", Toast.LENGTH_SHORT).show();
             Intent back = new Intent(this, MainActivity.class);
             startActivity(back);
         }
+        Edit_info = findViewById(R.id.teacher_EditInfo_button);
+        name = findViewById(R.id.teacher_title);
+        Edit_info.setOnClickListener(E_Listener);
+        lastIn = getIntent();
+        name.setText("Hello " + my_Data.user_data.getTeacher(Teacher_index).getName());
+        Teacher_index = lastIn.getIntExtra("teacher_index", -1);
+    }
+    @SuppressLint("SetTextI18n")
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        name.setText("Hello " + my_Data.user_data.getTeacher(Teacher_index).getName());
     }
 }

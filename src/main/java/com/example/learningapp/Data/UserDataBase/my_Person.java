@@ -1,8 +1,6 @@
 package com.example.learningapp.Data.UserDataBase;
 
-import java.io.Serializable;
-
-public class my_Person implements Serializable {
+public class my_Person {
     private String name;
     private int age;
     private AccountData accountData; // t -> male. f -> female
@@ -14,7 +12,7 @@ public class my_Person implements Serializable {
         return "女";
     }
 
-    public Boolean getGenderBoolean(){
+    public Boolean getGenderBoolean() {
         return gender;
     }
 
