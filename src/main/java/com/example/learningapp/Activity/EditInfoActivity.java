@@ -282,6 +282,5 @@ public class EditInfoActivity extends AppCompatActivity {
         setListener();
         get_Data();
         set_info();
-
     }
 }

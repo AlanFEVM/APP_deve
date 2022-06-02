@@ -28,6 +28,17 @@
                 android:gravity="center"
                 android:text="Teacher"
                 android:textSize="30sp" />
+            <Button
+                android:id="@+id/View_class_room"
+                android:layout_marginHorizontal="15dp"
+                android:gravity="center"
+                android:backgroundTint="@color/LoginButtonColor"
+                android:textColor="@color/LoginButtonTextColor"
+                android:text="查看教室"
+                android:textSize="20sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
 
             <Button
                 android:id="@+id/teacher_EditInfo_button"
