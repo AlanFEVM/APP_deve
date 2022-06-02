@@ -1,17 +1,19 @@
 package com.example.learningapp.Data.UserDataBase;
-
+//一个没用的注释
 import java.io.Serializable;
 import java.util.ArrayList;
-
+//用户数据库模型
 public class UserDataBase implements Serializable {
-    private final ArrayList<Student> myStudents = new ArrayList<>();
-    private final ArrayList<Teacher> myTeachers = new ArrayList<>();
+    private final ArrayList<Student> myStudents = new ArrayList<>();//存放所有学生信息
+    private final ArrayList<Teacher> myTeachers = new ArrayList<>();//存放所有教师信息
 
-    public UserDataBase() {
+    public UserDataBase() {//构造函数，暂时什么都不做
     }
+    //下面是一些算法
 
+    //这里进行用户名匹配操作，参数传递外部给定的用户名，内部进行匹配
     public boolean match_account(String account_name) {
-        //true if match a account
+        //用户名属于敏感型数据，因此要对教师数据库和学生数据库进行逐一匹配
         for (int i = 0; i < myStudents.size(); i++) {
             if (myStudents.get(i).getAccountData().getAccount_name().matches(account_name)) {
                 return true;

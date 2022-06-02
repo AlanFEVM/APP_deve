@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //首先创建我们的数据库，这里的数据库用的是一个静态类
         if (my_Data.user_data == null) {
             my_Data.initial_data_base();
         }
