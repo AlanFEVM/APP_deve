@@ -128,6 +128,9 @@ public class EditInfoActivity extends AppCompatActivity {
             pwd_hint.setText("");
             change_password_layout.setVisibility(View.GONE);
         }
+        old_pwd.setText("");
+        new_pwd.setText("");
+        new_pwd2.setText("");
     }
     //---------------------------------------------------------------------------------------------
     //----------------------Listener---------------------------------------------------------------
@@ -141,6 +144,9 @@ public class EditInfoActivity extends AppCompatActivity {
     };
     View.OnClickListener P_C_L = v -> {
         change_password_layout.setVisibility(View.GONE);
+        old_pwd.setText("");
+        new_pwd.setText("");
+        new_pwd2.setText("");
         pwd_hint.setHint("");
     };
     View.OnClickListener info_confirm_listener = v -> {
