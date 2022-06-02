@@ -1,6 +1,6 @@
 package com.example.learningapp.Data;
 
-import com.example.learningapp.Data.Sign_func.ClassRoom;
+import com.example.learningapp.Data.ClassRoom.ClassRoom;
 import com.example.learningapp.Data.UserDataBase.Teacher;
 import com.example.learningapp.Data.UserDataBase.UserDataBase;
 
