@@ -199,6 +199,7 @@
                 <com.example.learningapp.CustomViews.HideHintEditText
                     android:id="@+id/info_changePwd_old"
                     android:layout_width="match_parent"
+                    android:inputType="textPassword"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="20dp"
                     android:gravity="center"
@@ -208,6 +209,7 @@
                     android:id="@+id/info_changePwd_new"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="textPassword"
                     android:layout_marginVertical="20dp"
                     android:gravity="center"
                     android:hint="输入新密码" />
@@ -216,6 +218,7 @@
                     android:id="@+id/info_changePwd_new2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="textPassword"
                     android:layout_marginVertical="20dp"
                     android:gravity="center"
                     android:hint="确认新密码" />
