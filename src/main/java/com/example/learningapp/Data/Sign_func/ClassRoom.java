@@ -2,8 +2,10 @@ package com.example.learningapp.Data.Sign_func;
 
 import com.example.learningapp.Data.UserDataBase.Student;
 import com.example.learningapp.Data.UserDataBase.Teacher;
+import com.example.learningapp.R;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 @SuppressWarnings("SuspiciousListRemoveInLoop")
 public class ClassRoom {
@@ -35,7 +37,9 @@ public class ClassRoom {
         }
     }
     //随机点名
-    public void random_pick(){
-
+    public Student random_pick(){
+        Random rand = new Random();
+        int i = rand.nextInt(class_student.size());
+        return class_student.get(i);
     }
 }
