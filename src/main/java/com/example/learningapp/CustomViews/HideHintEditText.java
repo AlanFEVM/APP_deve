@@ -5,12 +5,13 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.widget.EditText;
+import android.widget.TextView;
+
 
 @SuppressLint("AppCompatCustomView")
 public class HideHintEditText extends EditText {
-
     CharSequence hint;
-
+    
     public HideHintEditText(Context context) {
         super(context);
         hint = this.getHint();

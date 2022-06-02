@@ -14,6 +14,10 @@ public class my_Person implements Serializable {
         return "女";
     }
 
+    public Boolean getGenderBoolean(){
+        return gender;
+    }
+
     public void setGender(boolean gender) {
         this.gender = gender;
     }
