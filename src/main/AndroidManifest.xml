@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LearningAPP">
         <activity
+            android:name=".Activity.CreateClassRoom_Activity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.EditInfoActivity"
             android:exported="false" />
         <activity
