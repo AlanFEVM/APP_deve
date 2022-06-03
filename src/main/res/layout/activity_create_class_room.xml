@@ -11,22 +11,21 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/LoginButtonColor"
         android:gravity="center"
         android:text="创建教室"
+        android:textColor="@color/LoginButtonTextColor"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textSize="30sp"
-        android:background="@color/LoginButtonColor"
-        android:textColor="@color/LoginButtonTextColor" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:orientation="vertical"
-        android:paddingHorizontal="30dp"
+        android:paddingHorizontal="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -35,58 +34,62 @@
         app:layout_constraintVertical_bias="0.0">
 
         <com.example.learningapp.CustomViews.HideHintEditText
+            android:id="@+id/create_classroom_className"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="输入课程名称"
+            android:hint="输入课程名称"
             android:textSize="20sp" />
 
         <com.example.learningapp.CustomViews.HideHintEditText
+            android:id="@+id/create_classroom_classCode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="输入教室编号"
+            android:hint="输入教室编号"
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/create_classroom_hint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="注意：每个教师只能创建一个教室"
+            android:text="hint"
+            android:textColor="@color/red"
+            android:textSize="15sp"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="50dp">
+
+        <Button
+            android:id="@+id/create_classroom_button_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/LoginButtonColor"
+            android:text="取消并返回"
+            android:textColor="@color/LoginButtonTextColor"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/create_classroom_button_create"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/LoginButtonColor"
+            android:text="创建教室"
+            android:textColor="@color/LoginButtonTextColor"
             android:textSize="20sp" />
     </LinearLayout>
 
-
-
-    <Button
-        android:id="@+id/CreateClassRoomCancelButton"
-        android:layout_width="167dp"
-        android:layout_height="49dp"
-        android:backgroundTint="@color/LoginButtonColor"
-        android:foregroundGravity="bottom"
-        android:textColor="@color/LoginButtonTextColor"
-        android:textSize="20sp"
-        android:text="取消创建"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.07"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.966" />
-
-    <Button
-        android:id="@+id/CreateClassRoomButton"
-        android:layout_width="167dp"
-        android:layout_height="49dp"
-        android:backgroundTint="@color/LoginButtonColor"
-        android:foregroundGravity="bottom"
-        android:text="创建"
-        android:textColor="@color/LoginButtonTextColor"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.929"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.966" />
 </androidx.constraintlayout.widget.ConstraintLayout>

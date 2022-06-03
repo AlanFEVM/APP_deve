@@ -19,19 +19,25 @@ public class Teacher_Activity extends AppCompatActivity {
     Intent lastIn;
     TextView name;
     boolean have_class_room;
-    private void goCreateClassRoom(){
-        Intent myInent = new Intent(this,CreateClassRoom_Activity.class);
-        myInent.putExtra("teacher_index",teacher_index);
+
+    private void goCreateClassRoom() {
+        Intent myInent = new Intent(this, CreateClassRoom_Activity.class);
+        myInent.putExtra("teacher_index", teacher_index);
         startActivity(myInent);
     }
-    private void check_classroom(){
-        if (my_Data.user_data.getTeacher(teacher_index).getClassroom_index() == -1){
+
+    private void check_classroom() {
+        if (my_Data.user_data.getTeacher(teacher_index).getClassroom_index() == -1) {
             class_room.setText("创建教室");
             have_class_room = false;
         } else {
             class_room.setText("进入教室");
             have_class_room = true;
         }
+    }
+
+    public void goViewClassRoom() {
+
     }
 
     View.OnClickListener E_Listener = v -> {
@@ -41,14 +47,11 @@ public class Teacher_Activity extends AppCompatActivity {
         startActivity(to_info);
     };
 
-    View.OnClickListener Class_Room_L = v ->  {
-        @Override
-        public void onClick(View v) {
-            if(!have_class_room){
-                goCreateClassRoom();
-            } else {
-                goViewClassRoom();
-            }
+    View.OnClickListener Class_Room_L = v -> {
+        if (!have_class_room) {
+            goCreateClassRoom();
+        } else {
+            goViewClassRoom();
         }
     };
 
@@ -78,6 +81,7 @@ public class Teacher_Activity extends AppCompatActivity {
 
         check_classroom();
     }
+
     @SuppressLint("SetTextI18n")
     @Override
     protected void onRestart() {

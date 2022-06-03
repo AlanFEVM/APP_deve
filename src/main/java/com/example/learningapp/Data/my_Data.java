@@ -13,8 +13,8 @@ public class my_Data {
         user_data = new UserDataBase();
     }//用户数据库初始化函数
 
-    public static void creat_class_room(Integer t,String code,String curouse_name){//创建教室的函数，到时候在教师端调用
-        ClassRoom new_classroom = new ClassRoom(t,code,curouse_name);
+    public static void creat_class_room(Integer t,String course_name,String code){//创建教室的函数，到时候在教师端调用
+        ClassRoom new_classroom = new ClassRoom(t,code,course_name);
         my_class_room.add(new_classroom);
     }
 
@@ -23,7 +23,10 @@ public class my_Data {
     }
     public boolean checkClassRoomCodeValid(String code){
         for(int i = 0; i< my_class_room.size();i++){
-            if(my_class_room.get(i))
+            if(my_class_room.get(i).getClass_code().matches(code)){
+                return false;
+            }
         }
+        return true;
     }
 }

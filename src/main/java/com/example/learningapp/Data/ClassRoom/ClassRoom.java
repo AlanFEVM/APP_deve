@@ -11,7 +11,7 @@ public class ClassRoom {
     String course_name;
     int teacher_index;
     Sign sign;
-    ArrayList<Integer> student_index_from_db = new ArrayList<>();
+    ArrayList<Integer> my_student = new ArrayList<>();
 
     public String getClass_code() {
         return class_code;
@@ -45,14 +45,6 @@ public class ClassRoom {
         this.teacher_index = teacher_index;
     }
 
-    public ArrayList<Integer> getClassStudent() {
-        return student_index_from_db;
-    }
-
-    public void setStudent_index_from_db(ArrayList<Integer> student_index_from_db) {
-        this.student_index_from_db = student_index_from_db;
-    }
-
     public void create_sign (String lesson_name){
         String pub = my_Data.user_data.getTeacher(teacher_index).getName();
         Sign sign = new Sign(pub,lesson_name);
@@ -63,12 +55,19 @@ public class ClassRoom {
         course_name = c_n;
         teacher_name = my_Data.user_data.getTeacher(T).getName();
     }
-    public void addStudent(int index){
-        student_index_from_db.add(index);
+    public void addStudent(ArrayList<Integer> indexes){
+        for(int i = 0; i< my_student.size();i++){
+            for(int j = 0; j<indexes.size();j++) {
+                if (my_student.get(i) == indexes.get(j)){
+                    indexes.remove(j);
+                }
+            }
+        }
+        my_student.addAll(indexes);
     }
     public int Random_pickup(){
         Random rand = new Random();
-        int i = rand.nextInt(student_index_from_db.size());
-        return student_index_from_db.get(i);
+        int i = rand.nextInt(my_student.size());
+        return my_student.get(i);
     }
 }
