@@ -10,21 +10,20 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.learningapp.CustomViews.HideHintEditText;
+import com.example.learningapp.Data.UserDataBase.AccountData;
+import com.example.learningapp.Data.UserDataBase.Student;
 import com.example.learningapp.Data.my_Data;
 import com.example.learningapp.R;
 
 public class MainActivity extends AppCompatActivity {
-    public Button login;
-    public Button signup;
-    public RadioButton T_login;
-    public RadioButton S_login;
-    public HideHintEditText account;
-    public HideHintEditText passW;
+    public Button login,signup;
+    public RadioButton T_login,S_login;
+    public HideHintEditText account,passW;
 
-    View.OnClickListener l_listener = v -> goActivity();
+    View.OnClickListener l_listener = v -> LoginActivity();
     View.OnClickListener S_listener = v -> goSignup();
 
-    private void goActivity() {
+    private void LoginActivity() {
         Intent to_Student = new Intent(this, Student_Activity.class);
         Intent to_Teacher = new Intent(this, Teacher_Activity.class);
         account = findViewById(R.id.Account);
@@ -79,11 +78,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         //首先创建我们的数据库，这里的数据库用的是一个静态类
         if (my_Data.user_data == null) {
             my_Data.initial_data_base();
         }
         find_view();
         setListener();
+        my_Data.user_data.addStudent(new Student("name","20","2021223",true,new AccountData("test","123456")));
     }
 }

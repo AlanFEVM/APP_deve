@@ -1,5 +1,4 @@
 package com.example.learningapp.Activity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,39 +17,19 @@ import com.example.learningapp.R;
 
 public class EditInfoActivity extends AppCompatActivity {
     // -----------------------------------variables------------------------------------------------
-    Button edit_info_button;
-    Button change_password_button;
-    LinearLayout edit_info_layout;
-    LinearLayout change_password_layout;
-    TextView title;
-    TextView info_account;
-    TextView info_name;
-    TextView info_gender;
-    TextView info_age;
-    TextView info_code;
-    Button info_cancel;
-    Button password_cancel;
-    //info change widgets
-    HideHintEditText name_change;
-    HideHintEditText age_change;
-    HideHintEditText code_change;
-    RadioButton gender_male;
-    RadioButton gender_female;
-    TextView info_hint;
-    Button info_confirm_button;
-    //password change widgets
-    HideHintEditText old_pwd;
-    HideHintEditText new_pwd;
-    HideHintEditText new_pwd2;
-    Button pwd_confirm_button;
-    TextView pwd_hint;
-    //find index;
+    Button edit_info_button, change_password_button, pwd_confirm_button;
+    LinearLayout edit_info_layout, change_password_layout;
+    TextView title, info_account, info_name, info_gender, info_age, info_code, info_hint, info_confirm_button, pwd_hint;
+    Button info_cancel, password_cancel;
+    HideHintEditText name_change, age_change, code_change, old_pwd, new_pwd, new_pwd2;
+    RadioButton gender_male, gender_female;
+    //当前学生或教师索引
     int personIndex = -1;
-    // type stands for student or teacher, 0 stands for student while 1 stands for teacher
+    //类别 1 表示 教师， 0 表示学生
     int Person_type = -1;
-
     //---------------------------------------------------------------------------------------------
     //------------------------------- functions ---------------------------------------------------
+    //表格检测
     private int info_check() {
         String name = name_change.getText().toString();
         String age = age_change.getText().toString();
@@ -62,6 +41,7 @@ public class EditInfoActivity extends AppCompatActivity {
             return 1;
         }
     }
+    //设置基础信息
     private void setNewInfo(String name, String age, String code) {
         if (Person_type == 0) {
             my_Data.user_data.getStudent(personIndex).setName(name);
@@ -76,17 +56,18 @@ public class EditInfoActivity extends AppCompatActivity {
             my_Data.user_data.getTeacher(personIndex).setGender(gender_male.isChecked());
         }
     }
+    //密码修改检测
     private int pwdCheck() {
-        if(Person_type == 0){
+        if (Person_type == 0) {
             if (old_pwd.getText().toString().matches("") || new_pwd.getText().toString().matches("") || new_pwd2.getText().toString().matches("")) {
                 return -1;
                 //输入框不全
             }
-            if(!old_pwd.getText().toString().matches(my_Data.user_data.getStudent(personIndex).getAccountData().getPassword())){
+            if (!old_pwd.getText().toString().matches(my_Data.user_data.getStudent(personIndex).getAccountData().getPassword())) {
                 return 0;
                 //旧密码错误
             } else {
-                if(new_pwd.getText().toString().matches(new_pwd2.getText().toString())){
+                if (new_pwd.getText().toString().matches(new_pwd2.getText().toString())) {
                     return 1;
                     //新密码匹配成功
                 } else {
@@ -95,16 +76,16 @@ public class EditInfoActivity extends AppCompatActivity {
                 }
             }
         }
-        if(Person_type == 1){
+        if (Person_type == 1) {
             if (old_pwd.getText().toString().matches("") || new_pwd.getText().toString().matches("") || new_pwd2.getText().toString().matches("")) {
                 return -1;
                 //输入框不全
             }
-            if(!old_pwd.getText().toString().matches(my_Data.user_data.getTeacher(personIndex).getAccountData().getPassword())){
+            if (!old_pwd.getText().toString().matches(my_Data.user_data.getTeacher(personIndex).getAccountData().getPassword())) {
                 return 0;
                 //旧密码错误
             } else {
-                if(new_pwd.getText().toString().matches(new_pwd2.getText().toString())){
+                if (new_pwd.getText().toString().matches(new_pwd2.getText().toString())) {
                     return 1;
                     //新密码匹配成功
                 } else {
@@ -115,16 +96,17 @@ public class EditInfoActivity extends AppCompatActivity {
         }
         return -3;
     }
+    //新密码设置
     private void setNewPwd() {
-        if(Person_type == 0){
+        if (Person_type == 0) {
             my_Data.user_data.getStudent(personIndex).getAccountData().reset_password(new_pwd.getText().toString());
-            Toast.makeText(this,"新密码设置成功",Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "新密码设置成功", Toast.LENGTH_LONG).show();
             pwd_hint.setText("");
             change_password_layout.setVisibility(View.GONE);
         }
-        if(Person_type == 1){
+        if (Person_type == 1) {
             my_Data.user_data.getTeacher(personIndex).getAccountData().reset_password(new_pwd.getText().toString());
-            Toast.makeText(this,"新密码设置成功",Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "新密码设置成功", Toast.LENGTH_LONG).show();
             pwd_hint.setText("");
             change_password_layout.setVisibility(View.GONE);
         }
@@ -134,6 +116,7 @@ public class EditInfoActivity extends AppCompatActivity {
     }
     //---------------------------------------------------------------------------------------------
     //----------------------Listener---------------------------------------------------------------
+    //设置监听器
     View.OnClickListener change_pwd_Listener = v -> {
         edit_info_layout.setVisibility(View.GONE);
         change_password_layout.setVisibility(View.VISIBLE);
@@ -164,33 +147,32 @@ public class EditInfoActivity extends AppCompatActivity {
     View.OnClickListener edit_info_Listener = v -> {
         edit_info_layout.setVisibility(View.VISIBLE);
         change_password_layout.setVisibility(View.GONE);
-        if(Person_type == 0){
+        if (Person_type == 0) {
             code_change.setHint("学号");
         }
-        if(Person_type == 1){
+        if (Person_type == 1) {
             code_change.setHint("输入教师编号");
         }
         autoFillInfo();
     };
     View.OnClickListener pwd_confirm_listener = v -> {
         int status = pwdCheck();
-        if(status == -1){
+        if (status == -1) {
             pwd_hint.setText("请补全输入框");
         }
-        if(status == 0){
+        if (status == 0) {
             pwd_hint.setText("旧密码错误");
         }
-        if(status == -2){
+        if (status == -2) {
             pwd_hint.setText("输入的新密码不匹配");
         }
-        if(status == 1){
+        if (status == 1) {
             setNewPwd();
         }
     };
-
     //---------------------------------------------------------------------------------------------
-
     //---------------------------Basic Setup-------------------------------------------------------
+    //Activity 基础设置
     private void setListener() {
         edit_info_button.setOnClickListener(edit_info_Listener);
         change_password_button.setOnClickListener(change_pwd_Listener);
@@ -199,7 +181,6 @@ public class EditInfoActivity extends AppCompatActivity {
         info_confirm_button.setOnClickListener(info_confirm_listener);
         pwd_confirm_button.setOnClickListener(pwd_confirm_listener);
     }
-
     private void get_Data() {
         Intent lastIntent = getIntent();
         Person_type = lastIntent.getIntExtra("type", -1);
@@ -210,7 +191,6 @@ public class EditInfoActivity extends AppCompatActivity {
             personIndex = lastIntent.getIntExtra("teacher_index", -1);
         }
     }
-
     private void autoFillInfo() {
         if (Person_type == 0) {
             name_change.setText(my_Data.user_data.getStudent(personIndex).getName());
@@ -235,7 +215,6 @@ public class EditInfoActivity extends AppCompatActivity {
             }
         }
     }
-
     private void findViews() {
         edit_info_button = findViewById(R.id.info_EditInfo_button);
         change_password_button = findViewById(R.id.info_ChangePwd_button);
@@ -262,7 +241,6 @@ public class EditInfoActivity extends AppCompatActivity {
         pwd_confirm_button = findViewById(R.id.info_confirm_password);
         pwd_hint = findViewById(R.id.info_ChangePassword_hint);
     }
-
     @SuppressLint("SetTextI18n")
     private void set_info() {
         //student setup
@@ -285,7 +263,6 @@ public class EditInfoActivity extends AppCompatActivity {
         }
     }
     //---------------------------------------------------------------------------------------------
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

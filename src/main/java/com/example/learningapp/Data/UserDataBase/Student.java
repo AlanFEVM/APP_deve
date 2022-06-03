@@ -6,6 +6,13 @@ public class Student extends my_Person {
     public Student() {
         super();
     }
+    public Student(String name,String age,String code ,boolean gender,AccountData accountData){
+        this.setName(name);
+        this.setGender(gender);
+        this.setStudent_code(code);
+        this.setAge(Integer.parseInt(age));
+        this.setAccountData(accountData);
+    }
 
     public String getStudent_code() {
         return student_code;

@@ -1,45 +1,32 @@
 package com.example.learningapp.Data.ClassRoom;
 
-import com.example.learningapp.Data.UserDataBase.Student;
-import com.example.learningapp.Data.UserDataBase.Teacher;
-import com.example.learningapp.R;
+import com.example.learningapp.Data.my_Data;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-@SuppressWarnings("SuspiciousListRemoveInLoop")
 public class ClassRoom {
     String class_code;
     String class_name;
-    Teacher t;
+    int teacher_index;
     Sign sign;
-    ArrayList<Student> class_student = new ArrayList<>();
+    ArrayList<Integer> student_index_from_data = new ArrayList<>();
 
     public void create_sign (String lesson_name){
-        String pub = t.getName();
+        String pub = my_Data.user_data.getTeacher(teacher_index).getName();
         Sign sign = new Sign(pub,lesson_name);
     }
 
-    public ClassRoom(Teacher T,String code) {
+    public ClassRoom(Integer T,String code) {
         class_code = code;
-        class_name = T.getName();
+        class_name = my_Data.user_data.getTeacher(T).getName();
     }
-
-    public void add_Student(Student t) {
-        class_student.add(t);
+    public void addStudent(int index){
+        student_index_from_data.add(index);
     }
-
-    public void remove_Student_by_code (String code){
-        for(int i = 0; i <class_student.size();i++){
-            if(class_student.get(i).getStudent_code().matches(code)){
-                class_student.remove(i);
-            }
-        }
-    }
-    //随机点名
-    public Student random_pick(){
+    public int Random_pickup(){
         Random rand = new Random();
-        int i = rand.nextInt(class_student.size());
-        return class_student.get(i);
+        int i = rand.nextInt(student_index_from_data.size());
+        return student_index_from_data.get(i);
     }
 }
