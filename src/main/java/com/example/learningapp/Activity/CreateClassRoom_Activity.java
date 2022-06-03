@@ -17,6 +17,7 @@ public class CreateClassRoom_Activity extends AppCompatActivity {
     int teacher_index;
     private void goBack() {
         Intent back = new Intent(this, Teacher_Activity.class);
+        back.putExtra("teacher_index",teacher_index);
         startActivity(back);
     }
 

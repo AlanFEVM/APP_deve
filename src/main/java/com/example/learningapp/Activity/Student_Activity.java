@@ -42,11 +42,10 @@ public class Student_Activity extends AppCompatActivity {
             Intent back = new Intent(this, MainActivity.class);
             startActivity(back);
         }
-
-        name.setText("Hello " + my_Data.user_data.getStudent(student_index).getName());
         lastIn = getIntent();
         student_index = lastIn.getIntExtra("student_index", -1);
         edit_info.setOnClickListener(edit_listener);
+        name.setText("Hello " + my_Data.user_data.getStudent(student_index).getName());
     }
 
     @SuppressLint("SetTextI18n")
