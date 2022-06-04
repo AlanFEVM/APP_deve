@@ -21,9 +21,9 @@ public class Teacher_Activity extends AppCompatActivity {
     boolean have_class_room;
 
     private void goCreateClassRoom() {
-        Intent myInent = new Intent(this, CreateClassRoom_Activity.class);
-        myInent.putExtra("teacher_index", teacher_index);
-        startActivity(myInent);
+        Intent myIntent = new Intent(this, CreateClassRoom_Activity.class);
+        myIntent.putExtra("teacher_index", teacher_index);
+        startActivity(myIntent);
     }
 
     private void check_classroom() {
@@ -36,8 +36,10 @@ public class Teacher_Activity extends AppCompatActivity {
         }
     }
 
-    public void goViewClassRoom() {
-
+    public void goManageClassRoom() {
+        Intent to_class_room = new Intent(this, Teacher_ClassRoom_Management_Activity.class);
+        to_class_room.putExtra("teacher_index", teacher_index);
+        startActivity(to_class_room);
     }
 
     View.OnClickListener E_Listener = v -> {
@@ -51,7 +53,7 @@ public class Teacher_Activity extends AppCompatActivity {
         if (!have_class_room) {
             goCreateClassRoom();
         } else {
-            goViewClassRoom();
+            goManageClassRoom();
         }
     };
 
@@ -71,14 +73,12 @@ public class Teacher_Activity extends AppCompatActivity {
         edit_info = findViewById(R.id.teacher_EditInfo_button);
         name = findViewById(R.id.teacher_title);
         class_room = findViewById(R.id.teacher_class_room);
-
         edit_info.setOnClickListener(E_Listener);
         class_room.setOnClickListener(Class_Room_L);
 
         lastIn = getIntent();
-        name.setText("Hello " + my_Data.user_data.getTeacher(teacher_index).getName());
         teacher_index = lastIn.getIntExtra("teacher_index", -1);
-
+        name.setText("Hello " + my_Data.user_data.getTeacher(teacher_index).getName());
         check_classroom();
     }
 

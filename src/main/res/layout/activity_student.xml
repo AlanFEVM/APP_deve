@@ -10,7 +10,7 @@
         android:id="@+id/S_dashBoard"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/dashBoardColor"
+        android:background="@drawable/loginbackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -18,6 +18,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:padding="50dp"
             android:orientation="vertical">
 
             <TextView
@@ -33,7 +34,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:layout_marginHorizontal="15dp"
                 android:backgroundTint="@color/LoginButtonColor"
                 android:text="查看个人信息"
                 android:textColor="@color/LoginButtonTextColor"

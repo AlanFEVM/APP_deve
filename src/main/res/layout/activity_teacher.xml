@@ -9,7 +9,6 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/dashBoardColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,7 +17,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/dashBoardColor"
+            android:background="@drawable/loginbackground"
+            android:padding="50dp"
             android:orientation="vertical">
 
             <TextView
@@ -30,7 +30,6 @@
                 android:textSize="30sp" />
             <Button
                 android:id="@+id/teacher_class_room"
-                android:layout_marginHorizontal="15dp"
                 android:gravity="center"
                 android:backgroundTint="@color/LoginButtonColor"
                 android:textColor="@color/LoginButtonTextColor"
@@ -45,7 +44,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:layout_marginHorizontal="15dp"
                 android:backgroundTint="@color/LoginButtonColor"
                 android:text="查看个人信息"
                 android:textColor="@color/LoginButtonTextColor"

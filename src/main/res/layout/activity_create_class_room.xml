@@ -32,6 +32,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.0">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="目前每个教师只能创建一个教室"
+            android:layout_marginBottom="20dp"
+            android:textSize="20sp"
+            />
 
         <com.example.learningapp.CustomViews.HideHintEditText
             android:id="@+id/create_classroom_className"
@@ -57,7 +65,7 @@
             android:text="hint"
             android:textColor="@color/red"
             android:textSize="15sp"
-            android:visibility="invisible" />
+            android:visibility="invisible" />\
 
     </LinearLayout>
 

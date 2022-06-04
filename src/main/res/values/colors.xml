@@ -15,4 +15,5 @@
     <color name="dashBoardColor">#C9FFF7</color>
     <color name="red">#ff0000</color>
     <color name="info_text_background">#63FFFFFF</color>
+    <color name="Class_info_color">#A3CBD4FF</color>
 </resources>
