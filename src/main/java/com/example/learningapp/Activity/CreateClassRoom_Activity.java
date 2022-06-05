@@ -30,12 +30,15 @@ public class CreateClassRoom_Activity extends AppCompatActivity {
 
     View.OnClickListener create_listener = v -> {
         if (ET_name.getText().toString().matches("") || ET_code.getText().toString().matches("")) {
+            //判断是否完成表格
             hint.setText("请完成表格");
             hint.setVisibility(View.VISIBLE);
             return;
         } else {
             if (my_Data.user_data.getTeacher(teacher_index).getClassroom_index() == -1) {
+                // 判断教师是否之前创建过教室（教师中的方法getClassroom_index()表示获取数据库中classroom的下标）
                 if (my_Data.checkClassRoomCodeValid(ET_code.getText().toString())) {
+                    // 检测教室编号是否存在冲突
                     Creat_class_room();
                     Toast.makeText(this, "成功创建教室，请返回查看", Toast.LENGTH_LONG).show();
                 } else {
