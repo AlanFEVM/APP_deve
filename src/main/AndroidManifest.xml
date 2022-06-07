@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LearningAPP">
         <activity
+            android:name=".Activity.ViewStudent_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.AddStudentActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.Teacher_ClassRoom_Management_Activity"
             android:exported="false" />
         <activity

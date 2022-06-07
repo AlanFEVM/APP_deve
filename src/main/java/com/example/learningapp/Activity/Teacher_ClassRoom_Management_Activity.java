@@ -44,7 +44,23 @@ public class Teacher_ClassRoom_Management_Activity extends AppCompatActivity {
         class_code = findViewById(R.id.class_room_manage_class_code);
         class_student_num = findViewById(R.id.class_room_manage_class_student_num);
     }
+    View.OnClickListener addStudentListener = v -> {
+        to_add_student();
 
+    };
+    private void to_add_student(){
+        Intent intent = new Intent(this,AddStudentActivity.class);
+        intent.putExtra("teacher_index",teacher_index);
+        startActivity(intent);
+    }
+    public void goViewStudent(){
+        Intent intent = new Intent(this,ViewStudent_Activity.class);
+        intent.putExtra("teacher_index",teacher_index);
+        startActivity(intent);
+    }
+    View.OnClickListener viewSbtnListener = v -> {
+        goViewStudent();
+    };
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +74,7 @@ public class Teacher_ClassRoom_Management_Activity extends AppCompatActivity {
         class_name.setText("课程名称：" + my_Data.find_ClassRoomByTeacherClassRoomIndex(teacher_index).getCourse_name());
         class_code.setText("课程编号：" + my_Data.find_ClassRoomByTeacherClassRoomIndex(teacher_index).getClass_code());
         class_student_num.setText("班级人数：" + Integer.toString(my_Data.find_ClassRoomByTeacherClassRoomIndex(teacher_index).get_student_num()));
-
+        add_student_btn.setOnClickListener(addStudentListener);
+        view_student_btn.setOnClickListener(viewSbtnListener);
     }
 }

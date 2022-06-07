@@ -28,15 +28,6 @@ public class my_Data {
         return my_class_room.get(ci);
     }
 
-    public static Integer find_student_by_code(String code) {
-        for (int i = 0; i < user_data.getStudentArray().size(); i++) {
-            if (user_data.getStudentArray().get(i).getStudent_code().matches(code)) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
     public static boolean checkClassRoomCodeValid(String code) {
         for (int i = 0; i < my_class_room.size(); i++) {
             if (my_class_room.get(i).getClass_code().matches(code)) {

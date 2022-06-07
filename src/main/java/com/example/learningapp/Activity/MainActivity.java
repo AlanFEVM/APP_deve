@@ -35,9 +35,11 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "请输入用户名或密码", Toast.LENGTH_SHORT).show();
             return;
         }
-
+        if(!S_login.isChecked()&&!T_login.isChecked()){
+            Toast.makeText(this,"请勾选教师或者用户",Toast.LENGTH_LONG).show();
+        }
         if (T_login.isChecked()) {
-            int t = my_Data.user_data.findTeacher(my_Account, password);
+            int t = my_Data.user_data.matchTeacher(my_Account, password);
             if (t == -1) {
                 Toast.makeText(this, "账号不存在或密码错误", Toast.LENGTH_SHORT).show();
                 return;
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (S_login.isChecked()) {
-            int s = my_Data.user_data.findStudent(my_Account, password);
+            int s = my_Data.user_data.matchStudent(my_Account, password);
             if (s == -1) {
                 Toast.makeText(this, "账号不存在或密码错误", Toast.LENGTH_SHORT).show();
                 return;

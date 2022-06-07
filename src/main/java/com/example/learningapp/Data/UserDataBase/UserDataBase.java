@@ -6,10 +6,12 @@ import java.util.ArrayList;
 public class UserDataBase {
     private static final ArrayList<Student> myStudents = new ArrayList<>();//存放所有学生信息
     private static final ArrayList<Teacher> myTeachers = new ArrayList<>();//存放所有教师信息
-    public ArrayList<Student> getStudentArray(){
+
+    public ArrayList<Student> getStudentArray() {
         return myStudents;
     }
-    public UserDataBase() {//构造函数，暂时什么都不做
+
+    public UserDataBase() {
     }
     //下面是一些算法
 
@@ -55,7 +57,7 @@ public class UserDataBase {
         return myTeachers.get(index);
     }
 
-    public int findTeacher(String account, String pwd) {
+    public int matchTeacher(String account, String pwd) {
         for (int i = 0; i < myTeachers.size(); i++) {
             if (myTeachers.get(i).getAccountData().getAccount_name().matches(account) && myTeachers.get(i).getAccountData().getPassword().matches(pwd)) {
                 return i;
@@ -64,12 +66,63 @@ public class UserDataBase {
         return -1;
     }
 
-    public int findStudent(String account, String pwd) {
+    public int matchStudent(String account, String pwd) {
         for (int i = 0; i < myStudents.size(); i++) {
             if (myStudents.get(i).getAccountData().getAccount_name().matches(account) && myStudents.get(i).getAccountData().getPassword().matches(pwd)) {
                 return i;
             }
         }
         return -1;
+    }
+
+    //检测教师号是否冲突
+    public boolean check_T_code_valid(String code) {
+        for (int i = 0; i < myTeachers.size(); i++) {
+            if (myTeachers.get(i).getTeacher_code().matches(code)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    //检测学号是否冲突
+    public boolean check_S_code_valid(String code) {
+        for (int i = 0; i < myStudents.size(); i++) {
+            if (myStudents.get(i).getStudent_code().matches(code)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    //通过学号查找学生
+    public Student findStudentByCode(String code) {
+        for (int i = 0; i < myStudents.size(); i++) {
+            if (myStudents.get(i).getStudent_code().matches(code)) {
+                return myStudents.get(i);
+            }
+        }
+        return null;
+    }
+
+    public int findStudentIndexByCode(String code) {
+        for (int i = 0; i < myStudents.size(); i++) {
+            if (myStudents.get(i).getStudent_code().matches(code)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    //返回一个学生索引数组，但是该学生并不在某个教室中
+    public ArrayList<Integer> getStudentIndexNotInClassRoom(int classroom_index) {
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        for (int i = 0; i < myStudents.size(); i++) {
+            boolean atClassRoom = myStudents.get(i).is_AtClassRoom(classroom_index);
+            if (!atClassRoom) {
+                result.add(i);
+            }
+        }
+        return result;
     }
 }

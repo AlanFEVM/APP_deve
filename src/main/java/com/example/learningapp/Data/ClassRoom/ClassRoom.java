@@ -12,7 +12,9 @@ public class ClassRoom {
     int teacher_index;
     Sign sign;
     ArrayList<Integer> my_student;
-
+    public ArrayList<Integer> getMy_student(){
+        return my_student;
+    }
     public String getClass_code() {
         return class_code;
     }
@@ -61,12 +63,8 @@ public class ClassRoom {
         my_student = new ArrayList<Integer>();
     }
 
-    public boolean addStudent_By_code(String code) {
-        if (my_Data.find_student_by_code(code) != -1) {
-            my_student.add(my_Data.find_student_by_code(code));
-            return true;
-        }
-        return false;
+    public void addStudent_By_student_index(int index) {
+        my_student.add(index);
     }
 
     public int Random_pickup() {

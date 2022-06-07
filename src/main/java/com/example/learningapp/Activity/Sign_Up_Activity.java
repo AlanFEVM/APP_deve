@@ -21,18 +21,10 @@ import com.example.learningapp.R;
 import java.util.Objects;
 
 public class Sign_Up_Activity extends AppCompatActivity {
-    HideHintEditText account;
-    HideHintEditText name;
-    HideHintEditText password;
-    HideHintEditText password_2;
-    HideHintEditText age;
+    HideHintEditText account,name,password,password_2,age;
     MultiHintEditText code;
-    RadioButton teacher;
-    RadioButton student;
-    RadioButton male;
-    RadioButton female;
-    Button signup;
-    Button back;
+    RadioButton teacher,student,male,female;
+    Button signup,back;
     TextView hint;
 
     public int formCheck() {
@@ -100,6 +92,12 @@ public class Sign_Up_Activity extends AppCompatActivity {
             if (my_Data.user_data.match_account(account.getText().toString())) {
                 return 1;
             }
+            if (!my_Data.user_data.check_T_code_valid(code.getText().toString()) && teacher.isChecked()){
+                return 3;
+            }
+            if (!my_Data.user_data.check_S_code_valid(code.getText().toString())&& student.isChecked()){
+                return 3;
+            }
         }
         return 2;
     }
@@ -145,9 +143,19 @@ public class Sign_Up_Activity extends AppCompatActivity {
             return;
         }
         if (status == 2) {
-            Toast.makeText(this, "用户创建成功", Toast.LENGTH_LONG);
+            Toast.makeText(this, "用户创建成功", Toast.LENGTH_LONG).show();
             create_account();
             LogIn();
+        }
+        if (status == 3){
+            if(teacher.isChecked()){
+                Toast.makeText(this, "教师编号与其他编号冲突", Toast.LENGTH_LONG).show();
+                return;
+            }
+            if(student.isChecked()){
+                Toast.makeText(this, "学号与其他人存在冲突", Toast.LENGTH_LONG).show();
+                return;
+            }
         }
     };
     View.OnClickListener Tlistener = v -> {
