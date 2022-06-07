@@ -23,6 +23,7 @@ public class ViewStudent_Activity extends AppCompatActivity {
     RecyclerView my_Recycer_View;
     public void goback (){
         Intent intent = new Intent(this,Teacher_ClassRoom_Management_Activity.class);
+        intent.putExtra("teacher_index",teacher_index);
         startActivity(intent);
     }
     View.OnClickListener back_L = v -> {
