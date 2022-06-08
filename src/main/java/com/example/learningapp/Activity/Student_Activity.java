@@ -76,4 +76,5 @@ public class Student_Activity extends AppCompatActivity {
         super.onRestart();
         name.setText("Hello " + my_Data.user_data.getStudent(student_index).getName());
     }
+    //test
 }
