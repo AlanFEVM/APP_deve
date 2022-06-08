@@ -21,4 +21,6 @@
     <color name="formcolor">#CCE7FF</color>
     <color name="ButtonColor1">#9A83EE</color>
     <color name="white2">#F4F4F4</color>
+    <color name="student_join_hint_color">#88FFF5</color>
+    <color name="ButtonColor2">#8D3CFF</color>
 </resources>

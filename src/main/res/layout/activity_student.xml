@@ -28,7 +28,24 @@
                 android:gravity="center"
                 android:text="Student"
                 android:textSize="36sp" />
-
+            <Button
+                android:id="@+id/student_join_classroom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:backgroundTint="@color/LoginButtonColor"
+                android:text="加入教室"
+                android:textColor="@color/LoginButtonTextColor"
+                android:textSize="20sp" />
+            <Button
+                android:id="@+id/student_enter_classroom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:backgroundTint="@color/LoginButtonColor"
+                android:text="查看加入的教室"
+                android:textColor="@color/LoginButtonTextColor"
+                android:textSize="20sp" />
             <Button
                 android:id="@+id/student_EditInfo_button"
                 android:layout_width="match_parent"

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.widget.EditText;
-import android.widget.TextView;
 
 
 @SuppressLint("AppCompatCustomView")

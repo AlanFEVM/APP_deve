@@ -37,7 +37,6 @@ public class AddStudentActivity extends AppCompatActivity implements SearchStude
     @Override
     public void onCardButtonClick(int position) {
         student_to_add_index = student_Array_index.get(position);
-        System.out.println(student_to_add_index);
         setText();
     }
     View.OnClickListener search_btnListener = v -> {
@@ -108,7 +107,7 @@ public class AddStudentActivity extends AppCompatActivity implements SearchStude
     private void add_student_to_classRoom() {
         if(!(student_to_add_index ==-1)){
             if(!my_Data.user_data.getStudent(student_to_add_index).is_AtClassRoom(class_index)){
-                my_Data.user_data.getStudent(student_to_add_index).add_toClassRoom(my_T.getClassroom_index());
+                my_Data.user_data.getStudent(student_to_add_index).add_classRoom(my_T.getClassroom_index());
                 my_Data.my_class_room.get(class_index).addStudent_By_student_index(student_to_add_index);
                 Toast.makeText(this, "添加成功,请前往教室查看", Toast.LENGTH_LONG).show();
                 initial_student_array();

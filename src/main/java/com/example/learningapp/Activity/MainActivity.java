@@ -10,8 +10,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.learningapp.CustomViews.HideHintEditText;
-import com.example.learningapp.Data.UserDataBase.AccountData;
-import com.example.learningapp.Data.UserDataBase.Student;
 import com.example.learningapp.Data.my_Data;
 import com.example.learningapp.R;
 
@@ -87,6 +85,5 @@ public class MainActivity extends AppCompatActivity {
         }
         find_view();
         setListener();
-        my_Data.user_data.addStudent(new Student("name","20","2021223",true,new AccountData("test","123456")));
     }
 }

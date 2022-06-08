@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Random;
 public class ClassRoom {
     String class_code;
-    String teacher_name;
     String course_name;
     int teacher_index;
     Sign sign;
@@ -18,7 +17,7 @@ public class ClassRoom {
         return class_code;
     }
     public String getTeacher_name() {
-        return teacher_name;
+        return my_Data.user_data.getTeacher(teacher_index).getName();
     }
     public String getCourse_name() {
         return course_name;
@@ -37,7 +36,6 @@ public class ClassRoom {
         teacher_index = T;
         class_code = code;
         course_name = c_n;
-        teacher_name = my_Data.user_data.getTeacher(T).getName();
         my_student = new ArrayList<Integer>();
     }
     public void addStudent_By_student_index(int index) {

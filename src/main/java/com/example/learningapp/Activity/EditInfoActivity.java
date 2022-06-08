@@ -36,10 +36,22 @@ public class EditInfoActivity extends AppCompatActivity {
         String code = code_change.getText().toString();
         if (name.matches("") || age.matches("") || code.matches("")) {
             return 0;
-        } else {
+        }
+        if(Person_type == 1){
+            if(my_Data.user_data.check_T_code_valid(code)){
+                return 2;
+            }
             setNewInfo(name, age, code);
             return 1;
         }
+        if(Person_type == 2){
+            if(my_Data.user_data.check_S_code_valid(code)){
+                return 2;
+            }
+            setNewInfo(name, age, code);
+            return 1;
+        }
+        return 3;
     }
     //设置基础信息
     private void setNewInfo(String name, String age, String code) {
@@ -142,6 +154,13 @@ public class EditInfoActivity extends AppCompatActivity {
             Toast.makeText(this, "成功修改信息", Toast.LENGTH_LONG).show();
             info_hint.setHint("");
             edit_info_layout.setVisibility(View.GONE);
+        }
+        if(i == 2){
+            if(Person_type == 1){
+                Toast.makeText(this, "教师编号冲突", Toast.LENGTH_LONG).show();
+            }else{
+                Toast.makeText(this, "学号冲突", Toast.LENGTH_LONG).show();
+            }
         }
     };
     View.OnClickListener edit_info_Listener = v -> {

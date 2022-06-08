@@ -16,9 +16,9 @@ import com.example.learningapp.R;
 import java.util.ArrayList;
 
 public class SearchStudentDB_RV_Adapter extends RecyclerView.Adapter<SearchStudentDB_RV_Adapter.MyViewHolder> {
-    private ArrayList<Integer> my_studentIndex;
-    private Context my_context;
-    private RV_btnListener btnListener;
+    private final ArrayList<Integer> my_studentIndex;
+    private final Context my_context;
+    private final RV_btnListener btnListener;
     public SearchStudentDB_RV_Adapter(Context context, ArrayList<Integer> studentIndex, RV_btnListener btnListener) {
         this.my_context = context;
         this.my_studentIndex = studentIndex;
@@ -29,7 +29,7 @@ public class SearchStudentDB_RV_Adapter extends RecyclerView.Adapter<SearchStude
     @Override
     public SearchStudentDB_RV_Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(my_context);
-        View view = inflater.inflate(R.layout.add_student_card, parent, false);
+        View view = inflater.inflate(R.layout.card_add_student, parent, false);
         return new MyViewHolder(view,btnListener);
     }
 

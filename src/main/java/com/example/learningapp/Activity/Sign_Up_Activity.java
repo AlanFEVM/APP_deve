@@ -154,16 +154,15 @@ public class Sign_Up_Activity extends AppCompatActivity {
             }
             if(student.isChecked()){
                 Toast.makeText(this, "学号与其他人存在冲突", Toast.LENGTH_LONG).show();
-                return;
             }
         }
     };
-    View.OnClickListener Tlistener = v -> {
+    View.OnClickListener TListener = v -> {
         code.setUseOtherHint(true);
         code.set_my_hint(1);
         code.refresh_hint();
     };
-    View.OnClickListener Slistener = v -> {
+    View.OnClickListener SListener = v -> {
         code.setUseOtherHint(true);
         code.set_my_hint(2);
         code.refresh_hint();
@@ -172,8 +171,8 @@ public class Sign_Up_Activity extends AppCompatActivity {
     public void setListener() {
         back.setOnClickListener(backListener);
         signup.setOnClickListener(signListener);
-        teacher.setOnClickListener(Tlistener);
-        student.setOnClickListener(Slistener);
+        teacher.setOnClickListener(TListener);
+        student.setOnClickListener(SListener);
     }
 
     public void findViews() {

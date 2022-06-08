@@ -15,8 +15,8 @@ import com.example.learningapp.R;
 import java.util.ArrayList;
 
 public class ViewStudentRV_Adapter extends RecyclerView.Adapter<ViewStudentRV_Adapter.MyVH> {
-    private ArrayList<Integer> my_Student_index;
-    private Context context;
+    private final ArrayList<Integer> my_Student_index;
+    private final Context context;
 
     public ViewStudentRV_Adapter(Context context, ArrayList<Integer> S_arr) {
         this.context = context;
@@ -27,7 +27,7 @@ public class ViewStudentRV_Adapter extends RecyclerView.Adapter<ViewStudentRV_Ad
     @Override
     public ViewStudentRV_Adapter.MyVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.view_student_card, parent, false);
+        View view = inflater.inflate(R.layout.card_view_student, parent, false);
         return new MyVH(view);
     }
 

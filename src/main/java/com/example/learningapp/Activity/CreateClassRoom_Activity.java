@@ -38,7 +38,7 @@ public class CreateClassRoom_Activity extends AppCompatActivity {
                 // 判断教师是否之前创建过教室（教师中的方法getClassroom_index()表示获取数据库中classroom的下标）
                 if (my_Data.checkClassRoomCodeValid(ET_code.getText().toString())) {
                     // 检测教室编号是否存在冲突
-                    Creat_class_room();
+                    Create_class_room();
                     Toast.makeText(this, "成功创建教室，请返回查看", Toast.LENGTH_LONG).show();
                     cancel.setText("返回");
                 } else {
@@ -52,7 +52,7 @@ public class CreateClassRoom_Activity extends AppCompatActivity {
         }
     };
 
-    public void Creat_class_room() {
+    public void Create_class_room() {
         String C_name = ET_name.getText().toString();
         String C_code = ET_code.getText().toString();
         my_Data.create_class_room(teacher_index, C_name, C_code);

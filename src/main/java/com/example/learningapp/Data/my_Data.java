@@ -8,7 +8,16 @@ import java.util.ArrayList;
 public class my_Data {
     public static UserDataBase user_data = null; //这个数据库用域存放用户数据
     public static ArrayList<ClassRoom> my_class_room = null;// 这个数据库用于存放多个教室
-
+    public static ArrayList<Integer> findClassRoom_index_that_Student_is_not_in (ArrayList<Integer> classRoom_Index_from_Student){
+        ArrayList<Integer> result = new ArrayList<>();
+        for (int i = 0; i < my_class_room.size();i++){
+            result.add(i);
+        }
+        for (int i = 0; i < classRoom_Index_from_Student.size();i++){
+            result.remove(classRoom_Index_from_Student.get(i));
+        }
+        return result;
+    }
     public static void initial_data_base() {
         user_data = new UserDataBase();
         my_class_room = new ArrayList<ClassRoom>();
@@ -35,5 +44,14 @@ public class my_Data {
             }
         }
         return true;
+    }
+
+    public static int findClassRoomByCode(String toString) {
+        for(int i = 0; i < my_class_room.size(); i++){
+            if (my_class_room.get(i).getClass_code().matches(toString)){
+                return i;
+            }
+        }
+        return -1;
     }
 }
