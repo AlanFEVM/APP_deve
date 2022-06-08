@@ -50,8 +50,11 @@ public class AddStudentActivity extends AppCompatActivity implements SearchStude
     //---------------methods--------------------
     public void searcher(){
         String code = code_et.getText().toString();
+        if(my_Data.user_data.getStudentArray().size() == 0){
+            Toast.makeText(this,"学生数据库为空",Toast.LENGTH_LONG).show();
+            return;
+        }
         Student result = my_Data.user_data.findStudentByCode(code);
-
         if(code.matches("")){
             Toast.makeText(this,"请输入学号",Toast.LENGTH_LONG).show();
             return;
@@ -69,11 +72,15 @@ public class AddStudentActivity extends AppCompatActivity implements SearchStude
         startActivity(back);
     }
     public void setStudent(Student info){
-        student_to_add_index = my_Data.user_data.findStudentIndexByCode(info.getStudent_code());
+        if(my_Data.user_data.getStudentArray().size() != 0){
+            student_to_add_index = my_Data.user_data.findStudentIndexByCode(info.getStudent_code());
+        }
     }
     public void setText(){
-        name.setText(my_Data.user_data.getStudent(student_to_add_index).getName());
-        code.setText(my_Data.user_data.getStudent(student_to_add_index).getStudent_code());
+        if(student_to_add_index != -1){
+            name.setText(my_Data.user_data.getStudent(student_to_add_index).getName());
+            code.setText(my_Data.user_data.getStudent(student_to_add_index).getStudent_code());
+        }
     }
     //---------------recycle view things setup --------------------
     public void initial_student_array(){
