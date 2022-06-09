@@ -4,14 +4,19 @@ import java.util.ArrayList;
 
 public class Sign {
     String publisher;
-    ArrayList<String> signer = new ArrayList<>();
-    public void add_Signer (String name){
-        signer.add(name);
+    String sign_pwd;
+    ArrayList<Integer> signer = new ArrayList<>();
+
+    public void add_Signer(int student_index) {
+        signer.add(student_index);
     }
-    public Sign(String pub,String lesson){
+
+    public Sign(String pub, String pwd) {
         publisher = pub;
+        sign_pwd = pwd;
     }
-    public int current_signer(){
+
+    public int current_signer() {
         return signer.size();
     }
 }
