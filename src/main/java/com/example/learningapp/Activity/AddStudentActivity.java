@@ -16,7 +16,7 @@ import com.example.learningapp.Data.UserDataBase.Student;
 import com.example.learningapp.Data.UserDataBase.Teacher;
 import com.example.learningapp.Data.my_Data;
 import com.example.learningapp.R;
-import com.example.learningapp.Activity.recyclerViewAdapter.SearchStudentDB_RV_Adapter;
+import com.example.learningapp.recyclerViewAdapter.SearchStudentDB_RV_Adapter;
 
 import java.util.ArrayList;
 

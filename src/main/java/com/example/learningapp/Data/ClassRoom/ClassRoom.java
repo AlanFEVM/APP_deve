@@ -8,8 +8,8 @@ public class ClassRoom {
     String class_code;
     String course_name;
     int teacher_index;
-    Sign sign;
     ArrayList<Integer> my_student;
+
     public ArrayList<Integer> getMy_student(){
         return my_student;
     }
@@ -19,6 +19,7 @@ public class ClassRoom {
     public String getTeacher_name() {
         return my_Data.user_data.getTeacher(teacher_index).getName();
     }
+
     public String getCourse_name() {
         return course_name;
     }
@@ -27,10 +28,6 @@ public class ClassRoom {
     }
     public int get_student_num() {
         return my_student.size();
-    }
-    public void create_sign(String sign_pwd) {
-        String pub = my_Data.user_data.getTeacher(teacher_index).getName();
-        Sign sign = new Sign(pub,sign_pwd);
     }
     public ClassRoom(Integer T, String code, String c_n) {
         teacher_index = T;

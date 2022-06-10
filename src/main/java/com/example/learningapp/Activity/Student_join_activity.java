@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.learningapp.Activity.recyclerViewAdapter.ClassRoomSearchRvAdapter;
+import com.example.learningapp.recyclerViewAdapter.ClassRoomSearchRvAdapter;
 import com.example.learningapp.R;
 import com.example.learningapp.Data.my_Data;
 

@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.learningapp.Activity.recyclerViewAdapter.ViewStudentRV_Adapter;
+import com.example.learningapp.recyclerViewAdapter.ViewStudentRV_Adapter;
 import com.example.learningapp.Data.my_Data;
 import com.example.learningapp.R;
 

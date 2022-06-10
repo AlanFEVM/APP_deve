@@ -103,6 +103,7 @@
             android:textColor="@color/LoginButtonTextColor"
             android:textSize="20sp" />
 
+
         <Button
             android:id="@+id/class_room_manage_random_pickup"
             android:layout_width="match_parent"
@@ -121,6 +122,7 @@
             android:textColor="@color/LoginButtonTextColor"
             android:textSize="20sp" />
 
+
         <Button
             android:id="@+id/class_room_manage_question"
             android:layout_width="match_parent"
@@ -129,7 +131,6 @@
             android:text="问题解答"
             android:textColor="@color/LoginButtonTextColor"
             android:textSize="20sp" />
-
 
         <Button
             android:id="@+id/class_room_manage_back"

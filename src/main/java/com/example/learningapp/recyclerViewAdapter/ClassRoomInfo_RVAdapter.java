@@ -1,4 +1,4 @@
-package com.example.learningapp.Activity.recyclerViewAdapter;
+package com.example.learningapp.recyclerViewAdapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -54,6 +54,7 @@ public class ClassRoomInfo_RVAdapter extends RecyclerView.Adapter<ClassRoomInfo_
             name_tv = itemView.findViewById(R.id.student_view_classRoom_card_className);
             code_tv = itemView.findViewById(R.id.student_view_classRoom_card_classcode);
             teacher_name_tv = itemView.findViewById(R.id.student_view_classRoom_card_ClassTeacher_name);
+            enter =  itemView.findViewById(R.id.student_view_classRoom_card_enterRoom_btn);
             enter.setOnClickListener(this);
             btn_listener = listener;
         }

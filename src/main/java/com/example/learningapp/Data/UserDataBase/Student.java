@@ -1,22 +1,30 @@
 package com.example.learningapp.Data.UserDataBase;
 
+import com.example.learningapp.Data.Message_pack.ClassRoomMessage;
+import com.example.learningapp.Data.Message_pack.Message;
+
 import java.util.ArrayList;
 
 public class Student extends my_Person {
     private String student_code;
+
+    private ArrayList<ClassRoomMessage> my_ClassRoom_Message;
     private ArrayList<Integer> class_room_array;
     public Student() {
         super();
-        class_room_array = new ArrayList<Integer>();
+        class_room_array = new ArrayList<>();
+        my_ClassRoom_Message = new ArrayList<>();
     }
-    public Student(String name,String age,String code ,boolean gender,AccountData accountData){
-        super();
-        this.setName(name);
-        this.setGender(gender);
-        this.setStudent_code(code);
-        this.setAge(Integer.parseInt(age));
-        this.setAccountData(accountData);
-        class_room_array = new ArrayList<Integer>();
+
+    public ArrayList<Message> getAllMessage(int index){
+        return my_ClassRoom_Message.get(index).getMessages();
+    }
+
+    public void create_Message(int classRoom_index,String title,String text){
+        my_ClassRoom_Message.get(classRoom_index).addMessage(title,text);
+    }
+    public int getClassRoomMessageCount(int ClassRoomIndex){
+        return my_ClassRoom_Message.get(ClassRoomIndex).getCounts();
     }
 
     public String getStudent_code() {

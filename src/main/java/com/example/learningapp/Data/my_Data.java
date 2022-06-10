@@ -20,7 +20,7 @@ public class my_Data {
     }
     public static void initial_data_base() {
         user_data = new UserDataBase();
-        my_class_room = new ArrayList<ClassRoom>();
+        my_class_room = new ArrayList<>();
     }//用户数据库初始化函数
 
     public static void create_class_room(Integer teacher_index, String course_name, String code) {//创建教室的函数，到时候在教师端调用
