@@ -9,13 +9,29 @@ public class ClassRoom {
     String course_name;
     int teacher_index;
     ArrayList<Integer> my_student;
+    ArrayList<CheckIn> my_checkIn;
 
-    public ArrayList<Integer> getMy_student(){
+    public ClassRoom(Integer T, String code, String c_n) {
+        teacher_index = T;
+        class_code = code;
+        course_name = c_n;
+        my_student = new ArrayList<Integer>();
+        my_checkIn = new ArrayList<>();
+    }
+
+    public void create_checkIn(String password, boolean has_password) {
+        CheckIn new_check = new CheckIn(password, has_password);
+        my_checkIn.add(new_check);
+    }
+
+    public ArrayList<Integer> getMy_student() {
         return my_student;
     }
+
     public String getClass_code() {
         return class_code;
     }
+
     public String getTeacher_name() {
         return my_Data.user_data.getTeacher(teacher_index).getName();
     }
@@ -29,15 +45,12 @@ public class ClassRoom {
     public int get_student_num() {
         return my_student.size();
     }
-    public ClassRoom(Integer T, String code, String c_n) {
-        teacher_index = T;
-        class_code = code;
-        course_name = c_n;
-        my_student = new ArrayList<Integer>();
-    }
+
+
     public void addStudent_By_student_index(int index) {
         my_student.add(index);
     }
+
     public int Random_pickup() {
         Random rand = new Random();
         int i = rand.nextInt(my_student.size());

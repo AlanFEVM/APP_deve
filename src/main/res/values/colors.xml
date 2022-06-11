@@ -23,4 +23,5 @@
     <color name="white2">#F4F4F4</color>
     <color name="student_join_hint_color">#88FFF5</color>
     <color name="ButtonColor2">#8D3CFF</color>
+    <color name="message_color">#8DFFFFFF</color>
 </resources>

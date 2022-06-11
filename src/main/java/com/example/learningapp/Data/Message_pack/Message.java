@@ -18,11 +18,11 @@ public class Message {
         return title;
     }
 
-    public void setRead(){
+    public void setRead() {
         read = true;
     }
 
-    public boolean isRead(){
+    public boolean isRead() {
         return read;
     }
 }

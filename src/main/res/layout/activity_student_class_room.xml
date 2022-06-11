@@ -125,6 +125,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_marginBottom="10dp"
@@ -173,29 +174,47 @@
                 </androidx.cardview.widget.CardView>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </FrameLayout>
+
         <Button
-            android:id="@+id/student_class_room_question_btn"
-            android:text="疑难解答"
-            android:textColor="@color/LoginButtonTextColor"
+            android:id="@+id/student_class_room_checkIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/LoginButtonColor"
+            android:text="签到"
+            android:textColor="@color/LoginButtonTextColor"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <Button
             android:id="@+id/student_class_room_home_work_tv"
-            android:text="作业提交"
-            android:textColor="@color/LoginButtonTextColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/LoginButtonColor"
+            android:text="作业提交"
+            android:textColor="@color/LoginButtonTextColor"
             android:textSize="20sp"
-            android:textStyle="bold"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/student_class_room_question_btn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/LoginButtonColor"
+            android:text="疑难解答"
+            android:textColor="@color/LoginButtonTextColor"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <Button
             android:id="@+id/student_class_room_back_btn"
-            android:layout_marginTop="340dp"
+            android:layout_marginTop="270dp"
             android:text="返回"
             android:textColor="@color/LoginButtonTextColor"
             android:layout_marginBottom="10dp"

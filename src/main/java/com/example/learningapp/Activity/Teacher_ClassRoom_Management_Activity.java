@@ -14,11 +14,14 @@ import com.example.learningapp.R;
 
 public class Teacher_ClassRoom_Management_Activity extends AppCompatActivity {
     int teacher_index;
-    Button view_student_btn, add_student_btn, add_sign_btn, random_pickup_btn, homework_btn, questions_btn, get_back_btn;
+    Button view_student_btn, add_student_btn, add_checkin_btn, random_pickup_btn, homework_btn, questions_btn, get_back_btn;
     TextView class_name, class_code, class_student_num;
     Intent lastI;
+    View.OnClickListener checkin_L = v -> {
+        goCreateCheckIn();
+    };
 
-    public void log_back() {
+    private void log_back() {
         Intent back = new Intent(this, Teacher_Activity.class);
         back.putExtra("teacher_index", teacher_index);
         startActivity(back);
@@ -26,8 +29,15 @@ public class Teacher_ClassRoom_Management_Activity extends AppCompatActivity {
 
     View.OnClickListener Back_listener = v -> log_back();
 
-    public void setListener() {
+    private void goCreateCheckIn() {
+        Intent intent = new Intent(this, Teacher_create_sign.class);
+        intent.putExtra("teacher_index", teacher_index);
+        startActivity(intent);
+    }
+
+    private void setListener() {
         get_back_btn.setOnClickListener(Back_listener);
+        add_checkin_btn.setOnClickListener(checkin_L);
     }
 
     private void findViews() {
@@ -35,7 +45,7 @@ public class Teacher_ClassRoom_Management_Activity extends AppCompatActivity {
         questions_btn = findViewById(R.id.class_room_manage_question);
         homework_btn = findViewById(R.id.class_room_manage_homework);
         random_pickup_btn = findViewById(R.id.class_room_manage_random_pickup);
-        add_sign_btn = findViewById(R.id.class_room_manage_publish_sign);
+        add_checkin_btn = findViewById(R.id.class_room_manage_publish_checkin);
         add_student_btn = findViewById(R.id.class_room_manage_add_student_btn);
         view_student_btn = findViewById(R.id.class_room_manage_view_student_btn);
         class_name = findViewById(R.id.class_room_manage_class_name);
@@ -43,14 +53,16 @@ public class Teacher_ClassRoom_Management_Activity extends AppCompatActivity {
         class_student_num = findViewById(R.id.class_room_manage_class_student_num);
     }
     View.OnClickListener addStudentListener = v -> to_add_student();
-    private void to_add_student(){
-        Intent intent = new Intent(this,AddStudentActivity.class);
-        intent.putExtra("teacher_index",teacher_index);
+
+    private void to_add_student() {
+        Intent intent = new Intent(this, AddStudentActivity.class);
+        intent.putExtra("teacher_index", teacher_index);
         startActivity(intent);
     }
-    public void goViewStudent(){
-        Intent intent = new Intent(this,ViewStudent_Activity.class);
-        intent.putExtra("teacher_index",teacher_index);
+
+    private void goViewStudent() {
+        Intent intent = new Intent(this, ViewStudent_Activity.class);
+        intent.putExtra("teacher_index", teacher_index);
         startActivity(intent);
     }
     View.OnClickListener viewStudentBtnListener = v -> goViewStudent();

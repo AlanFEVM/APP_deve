@@ -15,15 +15,14 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
 
-            android:layout_margin="10dp"
-            app:cardCornerRadius="30dp"
             android:layout_height="650dp"
-            >
+            android:layout_margin="10dp"
+            app:cardCornerRadius="30dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:background="@drawable/card_background2"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@drawable/card_background2">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/class_room_student_db"
@@ -42,16 +41,16 @@
         </androidx.cardview.widget.CardView>
 
         <Button
-            android:layout_gravity="center"
             android:id="@+id/view_Student_back"
             android:layout_width="match_parent"
-            android:layout_marginHorizontal="50dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="50dp"
             android:backgroundTint="@color/LoginButtonColor"
+            android:text="返回"
             android:textColor="@color/LoginButtonTextColor"
             android:textSize="30sp"
-            android:textStyle="bold"
-            android:text="返回" />
+            android:textStyle="bold" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
