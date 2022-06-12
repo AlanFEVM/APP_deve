@@ -30,7 +30,7 @@ public class Teacher_ClassRoom_Management_Activity extends AppCompatActivity {
     View.OnClickListener Back_listener = v -> log_back();
 
     private void goCreateCheckIn() {
-        Intent intent = new Intent(this, Teacher_create_sign.class);
+        Intent intent = new Intent(this, Teacher_create_checkin.class);
         intent.putExtra("teacher_index", teacher_index);
         startActivity(intent);
     }

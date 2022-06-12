@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.learningapp.Data.my_Data;
 import com.example.learningapp.R;
 
-public class Teacher_create_sign extends AppCompatActivity {
+public class Teacher_create_checkin extends AppCompatActivity {
     int teacher_index;
     EditText password_ET;
     Button create, back;
@@ -25,8 +25,10 @@ public class Teacher_create_sign extends AppCompatActivity {
             checkInPwdCheck();
             createCheckIn();
             sendMessages();
+            Toast.makeText(this, "成功发出签到，请返回查看", Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(this, "班级里面还没有学生，无法发出签到", Toast.LENGTH_LONG).show();
         }
-        Toast.makeText(this, "班级里面还没有学生，无法发出签到", Toast.LENGTH_LONG).show();
     };
     View.OnClickListener back_Listener = v -> goBack();
 

@@ -6,6 +6,7 @@ import com.example.learningapp.Data.Message_pack.Message;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class Student extends my_Person {
     private String student_code;
@@ -19,12 +20,12 @@ public class Student extends my_Person {
         my_ClassRoom_Message = new HashMap<>();
     }
     public void add_Message_queue(int classroom_index){
-        ClassRoomMessage new_msg = new ClassRoomMessage(classroom_index);
+        ClassRoomMessage new_msg = new ClassRoomMessage();
         my_ClassRoom_Message.put(classroom_index,new_msg);
     }
 
     public ArrayList<Message> getClassRoomMessages(int index) {
-        return my_ClassRoom_Message.get(index).getMessages();
+        return Objects.requireNonNull(my_ClassRoom_Message.get(index)).getMessages();
     }
 
     public void create_Message(int classRoom_index, String title, String text) {

@@ -4,10 +4,8 @@ import java.util.ArrayList;
 
 public class ClassRoomMessage {
     ArrayList<Message> my_Message;
-    int classRoomindex;
-    public ClassRoomMessage(int classRoomindex){
+    public ClassRoomMessage(){
         my_Message = new ArrayList<>();
-        this.classRoomindex = classRoomindex;
     }
 
     public ArrayList<Message> getMessages(){
@@ -16,6 +14,7 @@ public class ClassRoomMessage {
 
     public void addMessage(String title,String text){
         Message new_message = new Message(title,text);
+        my_Message.add(new_message);
     }
 
     public int getCounts(){

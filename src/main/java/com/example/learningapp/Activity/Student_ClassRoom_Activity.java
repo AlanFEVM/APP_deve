@@ -1,5 +1,6 @@
 package com.example.learningapp.Activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -59,6 +60,7 @@ public class Student_ClassRoom_Activity extends AppCompatActivity {
         homework = findViewById(R.id.student_class_room_home_work_tv);
         back = findViewById(R.id.student_class_room_back_btn);
         message_count_card = findViewById(R.id.student_class_room_message_count_card);
+        messagecount_tv = findViewById(R.id.student_class_room_message_count_tv);
     }
     private void setInfo(){
         name.setText(my_Data.my_class_room.get(classroom_index).getCourse_name());
@@ -73,13 +75,14 @@ public class Student_ClassRoom_Activity extends AppCompatActivity {
         back.setOnClickListener(backListener);
     }
 
+    @SuppressLint("SetTextI18n")
     private void setMessageCount() {
         message_count_card.setVisibility(View.GONE);
         message_counts = my_Data.user_data.getStudent(student_index).getClassRoomMessage(classroom_index).getUnreadMessagesCounts();
         if (message_counts > 0) {
             message_count_card.setVisibility(View.VISIBLE);
         }
-        messagecount_tv.setText(message_counts);
+        messagecount_tv.setText(Integer.toString(message_counts));
     }
 
     @Override

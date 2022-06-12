@@ -63,6 +63,7 @@ public class Student_join_activity extends AppCompatActivity implements ClassRoo
             if(tag){
                 Toast.makeText(this,"加入成功",Toast.LENGTH_LONG).show();
                 my_Data.my_class_room.get(class_room_to_join_index).addStudent_By_student_index(student_index);
+                my_Data.user_data.getStudent(student_index).add_Message_queue(class_room_to_join_index);
                 setRv();
             }
         }else{

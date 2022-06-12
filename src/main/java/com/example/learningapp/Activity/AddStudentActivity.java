@@ -31,7 +31,7 @@ public class AddStudentActivity extends AppCompatActivity implements SearchStude
     Teacher my_T = null;
     int teacher_index = -1;
     int student_to_add_index = -1;
-    int class_index = -1;
+    int classroom_index = -1;
 
     //---------------listener-----------------
     @Override
@@ -113,9 +113,10 @@ public class AddStudentActivity extends AppCompatActivity implements SearchStude
     }
     private void add_student_to_classRoom() {
         if(!(student_to_add_index ==-1)){
-            if(!my_Data.user_data.getStudent(student_to_add_index).is_AtClassRoom(class_index)){
+            if(!my_Data.user_data.getStudent(student_to_add_index).is_AtClassRoom(classroom_index)){
                 my_Data.user_data.getStudent(student_to_add_index).add_classRoom(my_T.getClassroom_index());
-                my_Data.my_class_room.get(class_index).addStudent_By_student_index(student_to_add_index);
+                my_Data.my_class_room.get(classroom_index).addStudent_By_student_index(student_to_add_index);
+                my_Data.user_data.getStudent(student_to_add_index).add_Message_queue(classroom_index);
                 Toast.makeText(this, "添加成功,请前往教室查看", Toast.LENGTH_LONG).show();
                 initial_student_array();
                 set_up_recycler();
@@ -135,7 +136,7 @@ public class AddStudentActivity extends AppCompatActivity implements SearchStude
         Intent lastI = getIntent();
         teacher_index = lastI.getIntExtra("teacher_index",-1);
         my_T = my_Data.user_data.getTeacher(teacher_index);
-        class_index = my_T.getClassroom_index();
+        classroom_index = my_T.getClassroom_index();
         findViews();
         setListener();
         initial_student_array();
