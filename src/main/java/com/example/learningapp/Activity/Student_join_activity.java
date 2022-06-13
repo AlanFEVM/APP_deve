@@ -12,17 +12,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.learningapp.recyclerViewAdapter.ClassRoomSearchRvAdapter;
+import com.example.learningapp.recyclerViewAdapter.ClassRoomSearch_RV_Adapter;
 import com.example.learningapp.R;
 import com.example.learningapp.Data.my_Data;
 
 import java.util.ArrayList;
 
-public class Student_join_activity extends AppCompatActivity implements ClassRoomSearchRvAdapter.class_room_button_click{
+public class Student_join_activity extends AppCompatActivity implements ClassRoomSearch_RV_Adapter.class_room_button_click{
     ArrayList<Integer> Class_Room_Index_for_RV;
     Intent LastI;
     RecyclerView RV;
-    ClassRoomSearchRvAdapter adapter;
+    ClassRoomSearch_RV_Adapter adapter;
     TextView name_tv, code_tv;
     EditText code;
     Button search,confirm,back;
@@ -82,7 +82,7 @@ public class Student_join_activity extends AppCompatActivity implements ClassRoo
     }
     private void setRv(){
         Class_Room_Index_for_RV = my_Data.findClassRoom_index_that_Student_is_not_in(my_Data.user_data.getStudent(student_index).getClass_room_array());
-        adapter = new ClassRoomSearchRvAdapter(this, Class_Room_Index_for_RV,this);
+        adapter = new ClassRoomSearch_RV_Adapter(this, Class_Room_Index_for_RV,this);
         RV.setAdapter(adapter);
         RV.setLayoutManager(new LinearLayoutManager(this));
     }

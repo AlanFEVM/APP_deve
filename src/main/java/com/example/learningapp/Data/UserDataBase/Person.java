@@ -2,11 +2,16 @@ package com.example.learningapp.Data.UserDataBase;
 
 import java.util.ArrayList;
 
-public class my_Person {
+public abstract class Person {
+    /*Person 类属于抽象类,只能创建Person的子类
+    * 子类：Student Teacher*/
     private String name;
     private int age;
+    private AccountData accountData;
+    private boolean gender;// t -> male. f -> female
+    public Person() {
 
-    private AccountData accountData; // t -> male. f -> female
+    }
 
     public String getGender() {
         if (gender) {
@@ -21,12 +26,6 @@ public class my_Person {
 
     public void setGender(boolean gender) {
         this.gender = gender;
-    }
-
-    private boolean gender;
-
-    public my_Person() {
-
     }
 
     public String getName() {

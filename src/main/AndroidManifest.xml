@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LearningAPP">
         <activity
+            android:name=".Activity.Student_ClassRoom_CheckIn_Activity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.Student_ClassRoom_Messages_Activity"
             android:exported="false" />
         <activity

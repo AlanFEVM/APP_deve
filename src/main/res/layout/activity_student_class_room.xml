@@ -176,7 +176,7 @@
         </FrameLayout>
 
         <Button
-            android:id="@+id/student_class_room_checkIn"
+            android:id="@+id/student_class_room_checkIn_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"

@@ -1,15 +1,19 @@
 package com.example.learningapp.Data.UserDataBase;
 
 public class AccountData {
+    /*用户数据，用于存储账号和密码，提供3个操作
+    * 构造函数：生成一个用户信息
+    * reset_password 重置密码
+    * getAccount_name 用于获取用户名
+    * getPassword 获取密码*/
     private final String account_name; // 用户数据是常量，不可变更
     private String password;
 
-    public AccountData(String a_n, String pw) { //构造函数
+    public AccountData(String a_n, String pw) {
         this.account_name = a_n;
         this.password = pw;
     }
 
-    //重新设置密码
     public void reset_password(String s) {
         password = s;
     }
@@ -18,7 +22,6 @@ public class AccountData {
         return account_name;
     }
 
-    //返回密码（危险操作）
     public String getPassword() {
         return password;
     }

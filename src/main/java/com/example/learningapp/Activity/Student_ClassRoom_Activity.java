@@ -17,7 +17,7 @@ public class Student_ClassRoom_Activity extends AppCompatActivity {
     TextView name, code, t_name, messagecount_tv;
     int student_index, classroom_index, message_counts;
     Intent lastI;
-    Button message, questions, homework, back;
+    Button message, questions, homework, back, checkIn;
     CardView message_count_card;
     View.OnClickListener messageListener = v -> {
         goMessage();
@@ -28,7 +28,15 @@ public class Student_ClassRoom_Activity extends AppCompatActivity {
     View.OnClickListener homeworkListener = v -> {
         goHomework();
     };
-
+    View.OnClickListener checkInListener = v -> {
+        goCheckIn();
+    };
+    private void goCheckIn(){
+        Intent intent = new Intent(this,Student_ClassRoom_CheckIn_Activity.class);
+        intent.putExtra("student_index",student_index);
+        intent.putExtra("classroom_index",classroom_index);
+        startActivity(intent);
+    }
     private void goMessage() {
         Intent intent = new Intent(this, Student_ClassRoom_Messages_Activity.class);
         intent.putExtra("student_index", student_index);
@@ -61,6 +69,7 @@ public class Student_ClassRoom_Activity extends AppCompatActivity {
         back = findViewById(R.id.student_class_room_back_btn);
         message_count_card = findViewById(R.id.student_class_room_message_count_card);
         messagecount_tv = findViewById(R.id.student_class_room_message_count_tv);
+        checkIn = findViewById(R.id.student_class_room_checkIn_btn);
     }
     private void setInfo(){
         name.setText(my_Data.my_class_room.get(classroom_index).getCourse_name());
@@ -73,6 +82,7 @@ public class Student_ClassRoom_Activity extends AppCompatActivity {
         questions.setOnClickListener(questionsListener);
         homework.setOnClickListener(homeworkListener);
         back.setOnClickListener(backListener);
+        checkIn.setOnClickListener(checkInListener);
     }
 
     @SuppressLint("SetTextI18n")

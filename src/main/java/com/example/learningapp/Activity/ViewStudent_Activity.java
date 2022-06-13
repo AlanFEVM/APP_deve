@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.learningapp.recyclerViewAdapter.ViewStudentRV_Adapter;
+import com.example.learningapp.recyclerViewAdapter.ViewStudent_RV_Adapter;
 import com.example.learningapp.Data.my_Data;
 import com.example.learningapp.R;
 
@@ -41,7 +41,7 @@ public class ViewStudent_Activity extends AppCompatActivity {
         int classroom_index = my_Data.user_data.getTeacher(teacher_index).getClassroom_index();
         student_arr = my_Data.my_class_room.get(classroom_index).getMy_student();
 
-        ViewStudentRV_Adapter adapter = new ViewStudentRV_Adapter(this,student_arr);
+        ViewStudent_RV_Adapter adapter = new ViewStudent_RV_Adapter(this,student_arr);
         my_Recycler_View.setAdapter(adapter);
         my_Recycler_View.setLayoutManager(new LinearLayoutManager(this));
 

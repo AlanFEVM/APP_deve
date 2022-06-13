@@ -14,25 +14,25 @@ import com.example.learningapp.R;
 
 import java.util.ArrayList;
 
-public class ViewStudentRV_Adapter extends RecyclerView.Adapter<ViewStudentRV_Adapter.MyVH> {
+public class ViewStudent_RV_Adapter extends RecyclerView.Adapter<ViewStudent_RV_Adapter.MyVH> {
     private final ArrayList<Integer> my_Student_index;
     private final Context context;
 
-    public ViewStudentRV_Adapter(Context context, ArrayList<Integer> S_arr) {
+    public ViewStudent_RV_Adapter(Context context, ArrayList<Integer> S_arr) {
         this.context = context;
         this.my_Student_index = S_arr;
     }
 
     @NonNull
     @Override
-    public ViewStudentRV_Adapter.MyVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewStudent_RV_Adapter.MyVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.card_view_student, parent, false);
         return new MyVH(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewStudentRV_Adapter.MyVH holder, int position) {
+    public void onBindViewHolder(@NonNull ViewStudent_RV_Adapter.MyVH holder, int position) {
         int student_index = my_Student_index.get(position);
         holder.tv_code.setText(my_Data.user_data.getStudent(student_index).getStudent_code());
         holder.tv_gender.setText(my_Data.user_data.getStudent(student_index).getGender());

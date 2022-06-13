@@ -15,11 +15,11 @@ import com.example.learningapp.R;
 
 import java.util.ArrayList;
 
-public class ClassRoomSearchRvAdapter extends RecyclerView.Adapter<ClassRoomSearchRvAdapter.VH> {
+public class ClassRoomSearch_RV_Adapter extends RecyclerView.Adapter<ClassRoomSearch_RV_Adapter.VH> {
     Context context;
     ArrayList<Integer> class_room_index;
     class_room_button_click btn_listener;
-    public ClassRoomSearchRvAdapter(Context context, ArrayList<Integer> class_room_index, class_room_button_click btn_listener) {
+    public ClassRoomSearch_RV_Adapter(Context context, ArrayList<Integer> class_room_index, class_room_button_click btn_listener) {
         this.context = context;
         this.class_room_index = class_room_index;
         this.btn_listener = btn_listener;
@@ -27,14 +27,14 @@ public class ClassRoomSearchRvAdapter extends RecyclerView.Adapter<ClassRoomSear
 
     @NonNull
     @Override
-    public ClassRoomSearchRvAdapter.VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ClassRoomSearch_RV_Adapter.VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.card_student_join_classroom, parent, false);
         return new VH(view,btn_listener);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ClassRoomSearchRvAdapter.VH holder, int position) {
+    public void onBindViewHolder(@NonNull ClassRoomSearch_RV_Adapter.VH holder, int position) {
         holder.name.setText(my_Data.my_class_room.get(class_room_index.get(position)).getCourse_name());
         holder.code.setText(my_Data.my_class_room.get(class_room_index.get(position)).getClass_code());
     }

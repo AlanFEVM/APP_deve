@@ -14,25 +14,25 @@ import com.example.learningapp.R;
 
 import java.util.ArrayList;
 
-public class StudentMessage_rv_adapter extends RecyclerView.Adapter<StudentMessage_rv_adapter.my_VH> {
+public class StudentMessage_RV_adapter extends RecyclerView.Adapter<StudentMessage_RV_adapter.my_VH> {
     Context my_Context;
     ArrayList<Message> my_Messages;
 
-    public StudentMessage_rv_adapter(Context context, ArrayList<Message> classRoomMessage) {
+    public StudentMessage_RV_adapter(Context context, ArrayList<Message> classRoomMessage) {
         this.my_Context = context;
         this.my_Messages = classRoomMessage;
     }
 
     @NonNull
     @Override
-    public StudentMessage_rv_adapter.my_VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public StudentMessage_RV_adapter.my_VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(my_Context);
         View view = inflater.inflate(R.layout.card_student_message_center, parent, false);
         return new my_VH(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull StudentMessage_rv_adapter.my_VH holder, int position) {
+    public void onBindViewHolder(@NonNull StudentMessage_RV_adapter.my_VH holder, int position) {
         holder.text.setText(my_Messages.get(my_Messages.size()-position-1).getText());
         holder.title.setText(my_Messages.get(my_Messages.size()-position-1).getTitle());
         boolean read = my_Messages.get(my_Messages.size()-position-1).isRead();

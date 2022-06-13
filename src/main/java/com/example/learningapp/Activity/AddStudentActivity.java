@@ -32,7 +32,6 @@ public class AddStudentActivity extends AppCompatActivity implements SearchStude
     int teacher_index = -1;
     int student_to_add_index = -1;
     int classroom_index = -1;
-
     //---------------listener-----------------
     @Override
     public void onCardButtonClick(int position) {
@@ -83,15 +82,12 @@ public class AddStudentActivity extends AppCompatActivity implements SearchStude
         }
     }
     //---------------recycle view things setup --------------------
-    public void initial_student_array(){
-        student_Array_index = my_Data.user_data.getStudentIndexNotInClassRoom(my_T.getClassroom_index());
-    }
     public void set_up_recycler(){
+        student_Array_index = my_Data.user_data.getStudentIndexNotInClassRoom(my_T.getClassroom_index());
         adapter = new SearchStudentDB_RV_Adapter(this,student_Array_index,this);
         StudentDB_RecyclerView.setAdapter(adapter);
         StudentDB_RecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
-
     private void findViews(){
         search_butn = findViewById(R.id.search_btn);
         code_et = findViewById(R.id.add_student_codeET);
@@ -118,7 +114,6 @@ public class AddStudentActivity extends AppCompatActivity implements SearchStude
                 my_Data.my_class_room.get(classroom_index).addStudent_By_student_index(student_to_add_index);
                 my_Data.user_data.getStudent(student_to_add_index).add_Message_queue(classroom_index);
                 Toast.makeText(this, "添加成功,请前往教室查看", Toast.LENGTH_LONG).show();
-                initial_student_array();
                 set_up_recycler();
                 resetThings();
             }else{
@@ -139,13 +134,11 @@ public class AddStudentActivity extends AppCompatActivity implements SearchStude
         classroom_index = my_T.getClassroom_index();
         findViews();
         setListener();
-        initial_student_array();
         set_up_recycler();
     }
     @Override
     protected void onRestart() {
         super.onRestart();
-        initial_student_array();
         set_up_recycler();
     }
 }

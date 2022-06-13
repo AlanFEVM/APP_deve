@@ -14,9 +14,11 @@ import com.example.learningapp.Data.my_Data;
 import com.example.learningapp.R;
 
 public class MainActivity extends AppCompatActivity {
-    public Button login,signup;
-    public RadioButton T_login,S_login;
-    public HideHintEditText account,passW;
+    public Button login, signup;
+    public RadioButton T_login, S_login;
+    public HideHintEditText account, passW;
+    String my_Account;
+    String password;
 
     View.OnClickListener l_listener = v -> LoginActivity();
     View.OnClickListener S_listener = v -> goSignup();
@@ -24,17 +26,16 @@ public class MainActivity extends AppCompatActivity {
     private void LoginActivity() {
         Intent to_Student = new Intent(this, Student_Activity.class);
         Intent to_Teacher = new Intent(this, Teacher_Activity.class);
-        account = findViewById(R.id.Account);
-        passW = findViewById(R.id.Password);
-        String my_Account = account.getText().toString();
-        String password = passW.getText().toString();
+
+        my_Account = account.getText().toString();
+        password = passW.getText().toString();
 
         if (my_Account.matches("") || password.matches("")) {
             Toast.makeText(this, "请输入用户名或密码", Toast.LENGTH_SHORT).show();
             return;
         }
-        if(!S_login.isChecked()&&!T_login.isChecked()){
-            Toast.makeText(this,"请勾选教师或者用户",Toast.LENGTH_LONG).show();
+        if (!S_login.isChecked() && !T_login.isChecked()) {
+            Toast.makeText(this, "请勾选教师或者用户", Toast.LENGTH_LONG).show();
         }
         if (T_login.isChecked()) {
             int t = my_Data.user_data.matchTeacher(my_Account, password);
@@ -67,8 +68,9 @@ public class MainActivity extends AppCompatActivity {
         signup = findViewById(R.id.LoginButtonSignup);
         T_login = findViewById(R.id.Teacher_Login);
         S_login = findViewById(R.id.Student_Login);
+        account = findViewById(R.id.Account);
+        passW = findViewById(R.id.Password);
     }
-
     public void setListener() {
         signup.setOnClickListener(S_listener);
         login.setOnClickListener(l_listener);
