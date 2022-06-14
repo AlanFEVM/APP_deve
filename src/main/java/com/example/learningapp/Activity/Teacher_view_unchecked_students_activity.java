@@ -30,6 +30,7 @@ public class Teacher_view_unchecked_students_activity extends AppCompatActivity 
         Intent intent = new Intent(this,Teacher_Manage_Checkin_Activity.class);
         intent.putExtra("teacher_index",teacher_index);
         intent.putExtra("classroom_idnex",classroom_index);
+        startActivity(intent);
     }
     View.OnClickListener backL= v -> {
         goback();
