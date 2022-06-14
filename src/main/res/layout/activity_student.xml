@@ -57,6 +57,15 @@
                 android:text="查看个人信息"
                 android:textColor="@color/LoginButtonTextColor"
                 android:textSize="20sp" />
+            <Button
+                android:id="@+id/student_logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:backgroundTint="@color/LoginButtonColor"
+                android:text="退出登录"
+                android:textColor="@color/LoginButtonTextColor"
+                android:textSize="20sp" />
 
         </LinearLayout>
 

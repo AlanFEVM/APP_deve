@@ -14,20 +14,29 @@ import com.example.learningapp.Data.my_Data;
 import com.example.learningapp.R;
 
 public class Student_Activity extends AppCompatActivity {
-    Button edit_info,join_classroom,enter_class_room;
+    Button edit_info,join_classroom,enter_class_room,logout;
     int student_index;
     Intent lastIn;
     TextView name;
+    private void logout_f(){
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+    }
+    View.OnClickListener logoutL = v -> {
+        logout_f();
+    };
     private void set_Listener(){
         edit_info.setOnClickListener(edit_listener);
         join_classroom.setOnClickListener(join_listener);
         enter_class_room.setOnClickListener(enter_Listener);
+        logout.setOnClickListener(logoutL);
     }
     private void findViews() {
         edit_info = findViewById(R.id.student_EditInfo_button);
         name = findViewById(R.id.student_title);
         join_classroom = findViewById(R.id.student_join_classroom);
         enter_class_room = findViewById(R.id.student_enter_classroom);
+        logout = findViewById(R.id.student_logout);
     }
     private void goJoinClassRoom_AC(){
         Intent intent = new Intent(this,Student_join_activity.class);

@@ -38,13 +38,13 @@ public class Student extends Person {
         return Objects.requireNonNull(my_ClassRoom_Message.get(index)).getMessages();
     }
 
-    public void create_Message(int classRoom_index, String title, String text) {
+    public void create_Message(int classRoom_index, String title, String text,int type, int index) {
         /*创建消息，由外部调用，某个特定的教室添加消息
-        * 参数：
-        * classRoom_index 教室索引
-        * title: 标题
-        * text: 消息内容*/
-        my_ClassRoom_Message.get(classRoom_index).addMessage(title, text);
+         * 参数：
+         * classRoom_index 教室索引
+         * title: 标题
+         * text: 消息内容*/
+        my_ClassRoom_Message.get(classRoom_index).addMessage(title, text,type,index);
     }
 
     public String getStudent_code() {

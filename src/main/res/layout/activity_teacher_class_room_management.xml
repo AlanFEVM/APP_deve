@@ -102,6 +102,14 @@
             android:text="发布签到"
             android:textColor="@color/LoginButtonTextColor"
             android:textSize="20sp" />
+        <Button
+            android:id="@+id/class_room_manage_managecheckins"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/LoginButtonColor"
+            android:text="管理签到"
+            android:textColor="@color/LoginButtonTextColor"
+            android:textSize="20sp" />
 
 
         <Button

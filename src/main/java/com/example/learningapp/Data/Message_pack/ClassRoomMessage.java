@@ -21,6 +21,16 @@ public class ClassRoomMessage {
         Message new_message = new Message(title,text);
         my_Message.add(new_message);
     }
+    public void addMessage(String title,String text,int messageType,int messageIndex){
+        //添加消息
+        /*参数
+         * title 标题
+         * text 内容
+         * messageType 类型，用于消息定向功能
+         * messageIndex 消息定向*/
+        Message new_message = new Message(title,text,messageType,messageIndex);
+        my_Message.add(new_message);
+    }
 
     public int getCounts(){
         /*获取总消息数目*/

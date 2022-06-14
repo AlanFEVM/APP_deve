@@ -8,11 +8,23 @@ public class Message {
     private String title;
     private String text;
     private boolean read;
+    private int message_Type;
+    /*0- checkin
+    * 1- homework
+    * 2- questions*/
+    private int message_Index;
 
     // constructor
     Message(String title, String text){
         this.title = title;
         this.text = text;
+        read = false;
+    }
+    Message(String title, String text,int message_Type,int message_index){
+        this.title = title;
+        this.text = text;
+        this.message_Type = message_Type;
+        this.message_Index = message_index;
         read = false;
     }
     //getter 和 setter
@@ -30,5 +42,10 @@ public class Message {
 
     public boolean isRead() {
         return read;
+    }
+
+    public void setMessage_direction(int type,int index){
+        this.message_Type = type;
+        this.message_Index = index;
     }
 }

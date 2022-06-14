@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,10 +18,12 @@ import java.util.ArrayList;
 public class StudentCheckIn_RV_Adapter extends RecyclerView.Adapter<StudentCheckIn_RV_Adapter.ViewHolder> {
     Context context;
     ArrayList<CheckIn> myCheckIn;
+    signButtonListener btnListener;
 
-    public StudentCheckIn_RV_Adapter(Context context,ArrayList<CheckIn> checkIns){
+    public StudentCheckIn_RV_Adapter(Context context,ArrayList<CheckIn> checkIns,signButtonListener btnListener){
         this.context = context;
         this.myCheckIn = checkIns;
+        this.btnListener = btnListener;
     }
 
     @NonNull
@@ -29,14 +31,12 @@ public class StudentCheckIn_RV_Adapter extends RecyclerView.Adapter<StudentCheck
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.card_student_checkin_rv,parent,false);
-        return new ViewHolder(view);
+        return new ViewHolder(view,btnListener);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        if(myCheckIn.get(position).has_password()){
-            holder.password.setVisibility(View.VISIBLE);
-        }
+        holder.name.setText(myCheckIn.get(position).getName());
     }
 
     @Override
@@ -44,13 +44,24 @@ public class StudentCheckIn_RV_Adapter extends RecyclerView.Adapter<StudentCheck
         return myCheckIn.size();
     }
 
-    protected static class ViewHolder extends RecyclerView.ViewHolder{
+    protected static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         Button checkin;
-        EditText password;
-        public ViewHolder(@NonNull View itemView) {
+        TextView name;
+        signButtonListener my_listener;
+        public ViewHolder(@NonNull View itemView,signButtonListener my_listener) {
             super(itemView);
+            this.my_listener = my_listener;
             checkin = itemView.findViewById(R.id.student_checkIn_btn);
-            password = itemView.findViewById(R.id.student_checkIn_password);
+            name = itemView.findViewById(R.id.student_checkIn_name);
+            checkin.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+            my_listener.checkIn(getAdapterPosition());
+        }
+    }
+    public interface signButtonListener{
+        void checkIn(int position);
     }
 }

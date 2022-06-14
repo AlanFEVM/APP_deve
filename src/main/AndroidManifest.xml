@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LearningAPP">
         <activity
+            android:name=".Activity.Teacher_view_unchecked_students_activity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Teacher_Manage_Checkin_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Student_checkin_password_activity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.Student_ClassRoom_CheckIn_Activity"
             android:exported="false" />
         <activity

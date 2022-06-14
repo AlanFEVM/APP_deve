@@ -18,7 +18,6 @@ import java.util.ArrayList;
 
 public class Student_enterClassRoom_Activity extends AppCompatActivity implements ClassRoomInfo_RVAdapter.my_button_listener {
     int student_index,classroom_index;
-    Context mContext;
     ClassRoomInfo_RVAdapter adapter;
     RecyclerView RV;
     ArrayList<Integer> class_room_index_for_RV;
@@ -55,7 +54,5 @@ public class Student_enterClassRoom_Activity extends AppCompatActivity implement
         intent.putExtra("student_index",student_index);
         startActivity(intent);
     }
-    View.OnClickListener back_Listener = v -> {
-        goBack();
-    };
+    View.OnClickListener back_Listener = v -> goBack();
 }

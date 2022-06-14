@@ -15,7 +15,7 @@ import com.example.learningapp.R;
 
 public class Teacher_Activity extends AppCompatActivity {
     int teacher_index;
-    Button edit_info, class_room;
+    Button edit_info, class_room, logout;
     Intent lastIn;
     TextView name;
     boolean have_class_room;
@@ -57,7 +57,13 @@ public class Teacher_Activity extends AppCompatActivity {
         }
     };
 
-
+    View.OnClickListener logoutL = v -> {
+        gologout();
+    };
+    private void gologout(){
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+    }
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,9 +78,11 @@ public class Teacher_Activity extends AppCompatActivity {
 
         edit_info = findViewById(R.id.teacher_EditInfo_button);
         name = findViewById(R.id.teacher_title);
+        logout = findViewById(R.id.teacher_logout);
         class_room = findViewById(R.id.teacher_class_room);
         edit_info.setOnClickListener(E_Listener);
         class_room.setOnClickListener(Class_Room_L);
+        logout.setOnClickListener(logoutL);
 
         lastIn = getIntent();
         teacher_index = lastIn.getIntExtra("teacher_index", -1);

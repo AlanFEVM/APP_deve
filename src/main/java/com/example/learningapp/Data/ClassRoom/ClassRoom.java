@@ -18,7 +18,12 @@ public class ClassRoom {
     int teacher_index;
     ArrayList<Integer> my_student;
     ArrayList<CheckIn> my_checkIn;
-
+    public CheckIn getCheckIn(int index){
+        return my_checkIn.get(index);
+    }
+    public int getCheckInSize(){
+        return my_checkIn.size();
+    }
     public ClassRoom(Integer T, String code, String c_n) {
         teacher_index = T;
         class_code = code;
@@ -37,9 +42,9 @@ public class ClassRoom {
         return result;
     }
 
-    public void create_checkIn(String password, boolean has_password) {
+    public void create_checkIn(String password, boolean has_password,String name) {
         /*添加一个签到*/
-        CheckIn new_check = new CheckIn(password, has_password);
+        CheckIn new_check = new CheckIn(password, has_password,my_checkIn.size(),name);
         my_checkIn.add(new_check);
     }
 
@@ -77,5 +82,8 @@ public class ClassRoom {
         Random rand = new Random();
         int i = rand.nextInt(my_student.size());
         return my_student.get(i);
+    }
+    public ArrayList<CheckIn> getAllCheckin(){
+        return my_checkIn;
     }
 }
