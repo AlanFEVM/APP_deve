@@ -12,12 +12,23 @@ public class ClassRoom {
     teacher_index 教师编号
     my_student 存储本教室的学生索引，并不是学生的数据信息，学生数据和教师数据都属于静态信息，使用my_Data.my_UserData进行存储
     my_checkIn 签到列表，只能由教师进行添加操作
+    homework 作业列表，由教师添加，内部的 answer 数组由学生添加
     * */
-    String class_code;
     String course_name;
+    String class_code;
     int teacher_index;
     ArrayList<Integer> my_student;
     ArrayList<CheckIn> my_checkIn;
+    ArrayList<HomeworkList> homework;
+
+    public ArrayList<HomeworkList> getHomework(){
+        return homework;
+    }
+
+    public void create_homework(String title, String content){
+        HomeworkList new_homework = new HomeworkList(title,content);
+        homework.add(new_homework);
+    }
     public CheckIn getCheckIn(int index){
         return my_checkIn.get(index);
     }
@@ -30,6 +41,7 @@ public class ClassRoom {
         course_name = c_n;
         my_student = new ArrayList<>();
         my_checkIn = new ArrayList<>();
+        homework = new ArrayList<>();
     }
 
     public ArrayList<CheckIn> findNotCheckedCheckIns(int student_index) {
@@ -41,13 +53,11 @@ public class ClassRoom {
         }
         return result;
     }
-
     public void create_checkIn(String password, boolean has_password,String name) {
         /*添加一个签到*/
         CheckIn new_check = new CheckIn(password, has_password,my_checkIn.size(),name);
         my_checkIn.add(new_check);
     }
-
     public ArrayList<Integer> getMy_student() {
         /*获取教室内的学生索引*/
         return my_student;
@@ -56,11 +66,9 @@ public class ClassRoom {
     public String getClass_code() {
         return class_code;
     }
-
     public String getTeacher_name() {
         return my_Data.user_data.getTeacher(teacher_index).getName();
     }
-
     public String getCourse_name() {
         return course_name;
     }
@@ -70,14 +78,11 @@ public class ClassRoom {
     public int get_student_num() {
         return my_student.size();
     }
-
-
     public void addStudent_By_student_index(int index) {
         /*添加学生*/
         my_student.add(index);
     }
-
-    public int Random_pickup() {
+    public int random_pickup() {
         /*随机点名，返回一个索引值，这个索引值用于 my_Data.user_data.myStudent*/
         Random rand = new Random();
         int i = rand.nextInt(my_student.size());

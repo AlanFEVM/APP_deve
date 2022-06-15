@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background2"
-    tools:context=".Activity.Teacher_create_checkin">
+    tools:context=".Activity.Teacher_create_checkin_activity">
 
     <LinearLayout
         android:id="@+id/linearLayout4"

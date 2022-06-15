@@ -17,14 +17,12 @@ public class Student_ClassRoom_Activity extends AppCompatActivity {
     TextView name, code, t_name, messagecount_tv;
     int student_index, classroom_index, message_counts;
     Intent lastI;
-    Button message, questions, homework, back, checkIn;
+    Button message, homework, back, checkIn;
     CardView message_count_card;
     View.OnClickListener messageListener = v -> {
         goMessage();
     };
-    View.OnClickListener questionsListener = v -> {
-        goQuestion();
-    };
+
     View.OnClickListener homeworkListener = v -> {
         goHomework();
     };
@@ -64,7 +62,6 @@ public class Student_ClassRoom_Activity extends AppCompatActivity {
         code = findViewById(R.id.student_class_room_classcode_tv);
         t_name = findViewById(R.id.student_class_room_class_teacher_name);
         message = findViewById(R.id.student_class_room_message_center_btn);
-        questions = findViewById(R.id.student_class_room_question_btn);
         homework = findViewById(R.id.student_class_room_home_work_tv);
         back = findViewById(R.id.student_class_room_back_btn);
         message_count_card = findViewById(R.id.student_class_room_message_count_card);
@@ -79,7 +76,6 @@ public class Student_ClassRoom_Activity extends AppCompatActivity {
 
     private void setListeners() {
         message.setOnClickListener(messageListener);
-        questions.setOnClickListener(questionsListener);
         homework.setOnClickListener(homeworkListener);
         back.setOnClickListener(backListener);
         checkIn.setOnClickListener(checkInListener);

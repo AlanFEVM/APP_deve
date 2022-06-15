@@ -111,13 +111,12 @@
             android:textColor="@color/LoginButtonTextColor"
             android:textSize="20sp" />
 
-
         <Button
-            android:id="@+id/class_room_manage_random_pickup"
+            android:id="@+id/class_room_manage_create_homework"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/LoginButtonColor"
-            android:text="随机点名"
+            android:text="布置作业"
             android:textColor="@color/LoginButtonTextColor"
             android:textSize="20sp" />
 
@@ -126,17 +125,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/LoginButtonColor"
-            android:text="作业批改"
+            android:text="作业管理"
             android:textColor="@color/LoginButtonTextColor"
             android:textSize="20sp" />
 
 
+
         <Button
-            android:id="@+id/class_room_manage_question"
+            android:id="@+id/class_room_manage_random_pickup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/LoginButtonColor"
-            android:text="问题解答"
+            android:text="随机点名"
             android:textColor="@color/LoginButtonTextColor"
             android:textSize="20sp" />
 

@@ -201,16 +201,6 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/student_class_room_question_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:backgroundTint="@color/LoginButtonColor"
-            android:text="疑难解答"
-            android:textColor="@color/LoginButtonTextColor"
-            android:textSize="20sp"
-            android:textStyle="bold" />
 
         <Button
             android:id="@+id/student_class_room_back_btn"

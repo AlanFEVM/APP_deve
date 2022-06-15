@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LearningAPP">
         <activity
+            android:name=".Activity.Teacher_manage_homewrok"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Teacher_create_homework_activity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.Teacher_view_unchecked_students_activity"
             android:exported="false" />
         <activity
@@ -25,7 +31,7 @@
             android:name=".Activity.Student_ClassRoom_Messages_Activity"
             android:exported="false" />
         <activity
-            android:name=".Activity.Teacher_create_checkin"
+            android:name=".Activity.Teacher_create_checkin_activity"
             android:exported="false" />
         <activity
             android:name=".Activity.Student_ClassRoom_Activity"

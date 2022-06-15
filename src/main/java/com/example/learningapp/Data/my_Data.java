@@ -49,7 +49,7 @@ public class my_Data {
         return my_class_room.size() - 1;
     }
 
-    public static ClassRoom find_ClassRoomByTeacherClassRoomIndex(int i) {
+    public static ClassRoom find_ClassRoomByTeacherIndex(int i) {
         //找到教师创建的教室
         int ci = my_Data.user_data.getTeacher(i).getClassroom_index();
         return my_class_room.get(ci);

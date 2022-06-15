@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.learningapp.Data.my_Data;
 import com.example.learningapp.R;
 
-public class Teacher_create_checkin extends AppCompatActivity {
+public class Teacher_create_checkin_activity extends AppCompatActivity {
     int teacher_index;
     EditText password_ET, checkIn_name;
     Button create, back;
@@ -61,7 +61,7 @@ public class Teacher_create_checkin extends AppCompatActivity {
         for (int i = 0; i < my_Data.my_class_room.get(class_room_index).get_student_num(); i++) {
             student_index = my_Data.my_class_room.get(class_room_index).getMy_student().get(i);
             int index = (my_Data.my_class_room.get(class_room_index).getCheckInSize() - 1);
-            my_Data.user_data.getStudent(student_index).create_Message(class_room_index, "签到", "你有一个签到需要完成,签到名称：" + checkIn_name.getText().toString(),0,index);
+            my_Data.user_data.getStudent(student_index).create_Message(class_room_index, "签到", "你有一个签到需要完成,签到名称：" + checkIn_name.getText().toString());
         }
     }
 
