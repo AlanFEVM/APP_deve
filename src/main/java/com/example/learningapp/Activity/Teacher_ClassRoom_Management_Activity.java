@@ -57,10 +57,15 @@ public class Teacher_ClassRoom_Management_Activity extends AppCompatActivity {
         startActivity(intent);
     }
     View.OnClickListener random_pickup_L = v -> {
-        int randS = my_Data.find_ClassRoomByTeacherIndex(teacher_index).random_pickup();
-        Toast.makeText(this,"抽到的学生为 " + my_Data.user_data.getStudent(randS).getName(),Toast.LENGTH_LONG).show();
-        my_Data.user_data.getStudent(randS).
-            create_Message(my_Data.user_data.getTeacher(teacher_index).getClassroom_index(), "随机点名", "你被抽中啦");
+        if(my_Data.find_ClassRoomByTeacherIndex(teacher_index).getMy_student().size()!=0){
+            int randS = my_Data.find_ClassRoomByTeacherIndex(teacher_index).random_pickup();
+            Toast.makeText(this,"抽到的学生为 " + my_Data.user_data.getStudent(randS).getName(),Toast.LENGTH_LONG).show();
+            my_Data.user_data.getStudent(randS).
+                    create_Message(my_Data.user_data.getTeacher(teacher_index).getClassroom_index(), "随机点名", "你被抽中啦");
+        }else{
+            Toast.makeText(this,"班级中还没有学生，功能不可用",Toast.LENGTH_LONG).show();
+        }
+
     };
     View.OnClickListener homework_L = v -> {
         goCreateHomeWork();

@@ -27,11 +27,14 @@ public class Student_Homework_Activity extends AppCompatActivity implements Stud
     ArrayList<HomeworkList> rv_homework;
 
     private void goDohomework(int position){
-        Intent intent = new Intent(this, Student_Classroom_doHomework_Activity.class);
-        intent.putExtra("homework_index",position);
-        intent.putExtra("student_index",student_index);
-        intent.putExtra("classroom_index",classroom_index);
-        startActivity(intent);
+        if(!rv_homework.get(position).getHomeworkByStudentIndex(student_index).isCommented()){
+            Intent intent = new Intent(this, Student_Classroom_doHomework_Activity.class);
+            intent.putExtra("homework_index",position);
+            intent.putExtra("student_index",student_index);
+            intent.putExtra("classroom_index",classroom_index);
+            startActivity(intent);
+        }
+        Toast.makeText(this,"主人，作业已被批给，无法编辑",Toast.LENGTH_LONG).show();
     }
 
     private void goViewHomework(int position){

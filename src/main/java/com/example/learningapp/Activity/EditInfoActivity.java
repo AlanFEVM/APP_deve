@@ -12,12 +12,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.learningapp.CustomViews.HideHintEditText;
+import com.example.learningapp.Data.UserDataBase.Student;
 import com.example.learningapp.Data.my_Data;
 import com.example.learningapp.R;
 
 public class EditInfoActivity extends AppCompatActivity {
     // -----------------------------------variables------------------------------------------------
-    Button edit_info_button, change_password_button, pwd_confirm_button;
+    Button edit_info_button, change_password_button, pwd_confirm_button,back;
     LinearLayout edit_info_layout, change_password_layout;
     TextView title, info_account, info_name, info_gender, info_age, info_code, info_hint, info_confirm_button, pwd_hint;
     Button info_cancel, password_cancel;
@@ -126,6 +127,16 @@ public class EditInfoActivity extends AppCompatActivity {
         new_pwd.setText("");
         new_pwd2.setText("");
     }
+    private void goStudent(){
+        Intent intent = new Intent(this, Student_Activity.class);
+        intent.putExtra("student_index",personIndex);
+        startActivity(intent);
+    }
+    private void goTeacher(){
+        Intent intent = new Intent(this,Teacher_Activity.class);
+        intent.putExtra("teacher_index",personIndex);
+        startActivity(intent);
+    }
     //---------------------------------------------------------------------------------------------
     //----------------------Listener---------------------------------------------------------------
     //设置监听器
@@ -189,6 +200,14 @@ public class EditInfoActivity extends AppCompatActivity {
             setNewPwd();
         }
     };
+    View.OnClickListener back_L = v -> {
+        if(Person_type == 0){
+            goStudent();
+        }
+        if(Person_type == 1){
+            goTeacher();
+        }
+    };
     //---------------------------------------------------------------------------------------------
     //---------------------------Basic Setup-------------------------------------------------------
     //Activity 基础设置
@@ -199,6 +218,7 @@ public class EditInfoActivity extends AppCompatActivity {
         password_cancel.setOnClickListener(P_C_L);
         info_confirm_button.setOnClickListener(info_confirm_listener);
         pwd_confirm_button.setOnClickListener(pwd_confirm_listener);
+        back.setOnClickListener(back_L);
     }
     private void get_Data() {
         Intent lastIntent = getIntent();
