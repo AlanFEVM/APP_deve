@@ -6,7 +6,9 @@ public class HomeworkList {
     private String title;
     private String content;
     private ArrayList<StudentHomework> student_answer;
-
+    public ArrayList<StudentHomework> getHomework(){
+        return student_answer;
+    }
     public int getAnswerCounts(){
         return student_answer.size();
     }
@@ -34,19 +36,11 @@ public class HomeworkList {
         }
         return null;
     }
-
-    //设置答案，由学生端调用
-    public void set_Answer(int student_index, String answer) {
-        for (int i = 0; i < student_answer.size(); i++) {
-            if (student_answer.get(i).getStudent_index() == student_index) {
-                student_answer.get(i).set_answer(answer);
-                return;
-            }
-        }
-        StudentHomework studentHomework = new StudentHomework();
-        studentHomework.fillanswer(student_index, answer);
+    public void addHomework(int student_index){
+        StudentHomework studentHomework = new StudentHomework(student_index);
         student_answer.add(studentHomework);
     }
+    //设置答案，由学生端调用
 
     //由教室端调用
     public void set_score_coment(int student_index, int score, String coment) {

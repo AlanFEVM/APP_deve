@@ -27,7 +27,7 @@ public class UncheckedStudent_RV_Adapter extends RecyclerView.Adapter<UncheckedS
     @Override
     public Vholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View v = inflater.inflate(R.layout.card_unchecked_student_card, parent, false);
+        View v = inflater.inflate(R.layout.card_unchecked_student, parent, false);
         return new Vholder(v);
     }
 

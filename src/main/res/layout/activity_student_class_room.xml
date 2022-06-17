@@ -155,6 +155,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="500dp"
+                    android:elevation="6dp"
                     app:layout_constraintHorizontal_bias="0.95"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -196,7 +197,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/LoginButtonColor"
-            android:text="作业提交"
+            android:text="作业"
             android:textColor="@color/LoginButtonTextColor"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -204,7 +205,7 @@
 
         <Button
             android:id="@+id/student_class_room_back_btn"
-            android:layout_marginTop="270dp"
+            android:layout_marginTop="340dp"
             android:text="返回"
             android:textColor="@color/LoginButtonTextColor"
             android:layout_marginBottom="10dp"

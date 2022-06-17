@@ -29,8 +29,8 @@ public class Teacher_create_homework_activity extends AppCompatActivity {
         for (int i = 0; i < my_Data.my_class_room.get(classroom_index).get_student_num(); i++) {
             student_index = my_Data.my_class_room.get(classroom_index).getMy_student().get(i);
             my_Data.user_data.getStudent(student_index).create_Message(classroom_index, "作业通知","教师发布了新的作业，请查看");
-            Toast.makeText(this,"作业布置成功",Toast.LENGTH_LONG).show();
         }
+        Toast.makeText(this,"作业布置成功",Toast.LENGTH_LONG).show();
     }
 
     private void createHomework(){
@@ -65,6 +65,5 @@ public class Teacher_create_homework_activity extends AppCompatActivity {
         lastI = getIntent();
         teacher_index = lastI.getIntExtra("teacher_index",-1);
         classroom_index = lastI.getIntExtra("classroom_index",-1);
-
     }
 }

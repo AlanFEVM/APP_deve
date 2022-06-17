@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import com.example.learningapp.Data.ClassRoom.HomeworkList;
@@ -19,15 +20,31 @@ public class Teacher_manage_homewrok extends AppCompatActivity implements Manage
     int classroom_index;
     int teacher_index;
     RecyclerView homeworkRV;
-    Button back;    //TODO backbutton
+    Button back;
     Intent lastI;
     ArrayList<HomeworkList> homework;
     ManageHomework_RV_Adapter adapter;
 
     private void setRecyclerView(){
-        homework = my_Data.my_class_room.get(classroom_index).getHomework();
+        homework = my_Data.my_class_room.get(classroom_index).getHomeworklist();
         adapter = new ManageHomework_RV_Adapter(this,homework,this);
         homeworkRV.setAdapter(adapter);
+    }
+    private void viewStudentHomework(int index){
+        Intent intent = new Intent(this, Teacher_manageStudentHomework_Activity.class);
+        intent.putExtra("classroom_index",classroom_index);
+        intent.putExtra("homework_index",index);
+        intent.putExtra("teacher_index",teacher_index);
+        startActivity(intent);
+    }
+    View.OnClickListener back_L = v -> {
+        goback();
+    };
+    private void goback(){
+        Intent intent = new Intent(this,Teacher_ClassRoom_Management_Activity.class);
+        intent.putExtra("classroom_index",classroom_index);
+        intent.putExtra("teacher_index",teacher_index);
+        startActivity(intent);
     }
 
     @Override
@@ -44,10 +61,13 @@ public class Teacher_manage_homewrok extends AppCompatActivity implements Manage
         setRecyclerView();
         homeworkRV.setLayoutManager(new LinearLayoutManager(this));
 
+        back.setOnClickListener(back_L);
+
     }
 
     @Override
     public void viewStudent(int position) {
-        //TODO ViewStudentHomework
+        //position -- homeworkindex
+        viewStudentHomework(position);
     }
 }

@@ -21,7 +21,7 @@ public class ClassRoom {
     ArrayList<CheckIn> my_checkIn;
     ArrayList<HomeworkList> homework;
 
-    public ArrayList<HomeworkList> getHomework(){
+    public ArrayList<HomeworkList> getHomeworklist(){
         return homework;
     }
 
@@ -29,6 +29,7 @@ public class ClassRoom {
         HomeworkList new_homework = new HomeworkList(title,content);
         homework.add(new_homework);
     }
+
     public CheckIn getCheckIn(int index){
         return my_checkIn.get(index);
     }

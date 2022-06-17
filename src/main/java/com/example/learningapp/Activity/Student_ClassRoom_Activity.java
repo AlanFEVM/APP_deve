@@ -42,12 +42,11 @@ public class Student_ClassRoom_Activity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void goQuestion() {
-
-    }
-
     private void goHomework() {
-
+        Intent intent = new Intent(this,Student_Homework_Activity.class);
+        intent.putExtra("student_index",student_index);
+        intent.putExtra("classroom_index",classroom_index);
+        startActivity(intent);
     }
     View.OnClickListener backListener = v -> {
         goback();
