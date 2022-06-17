@@ -279,6 +279,7 @@ public class EditInfoActivity extends AppCompatActivity {
         new_pwd2 = findViewById(R.id.info_changePwd_new2);
         pwd_confirm_button = findViewById(R.id.info_confirm_password);
         pwd_hint = findViewById(R.id.info_ChangePassword_hint);
+        back = findViewById(R.id.info_EditInfo_back);
     }
     @SuppressLint("SetTextI18n")
     private void set_info() {
