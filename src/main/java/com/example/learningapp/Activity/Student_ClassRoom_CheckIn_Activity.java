@@ -28,7 +28,7 @@ public class Student_ClassRoom_CheckIn_Activity extends AppCompatActivity implem
         goback();
     };
     private void goback(){
-        Intent intent = new Intent(this,Student_enterClassRoom_Activity.class);
+        Intent intent = new Intent(this,Student_ClassRoom_Activity.class);
         intent.putExtra("student_index",student_index);
         intent.putExtra("classroom_index",classroom_index);
         startActivity(intent);
