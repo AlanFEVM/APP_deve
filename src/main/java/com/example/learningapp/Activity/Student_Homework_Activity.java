@@ -27,14 +27,18 @@ public class Student_Homework_Activity extends AppCompatActivity implements Stud
     ArrayList<HomeworkList> rv_homework;
 
     private void goDohomework(int position){
+        if(rv_homework.get(position).getHomeworkByStudentIndex(student_index)==null){
+            rv_homework.get(position).addHomework(student_index);
+        }
         if(!rv_homework.get(position).getHomeworkByStudentIndex(student_index).isCommented()){
             Intent intent = new Intent(this, Student_Classroom_doHomework_Activity.class);
             intent.putExtra("homework_index",position);
             intent.putExtra("student_index",student_index);
             intent.putExtra("classroom_index",classroom_index);
             startActivity(intent);
+        } else{
+            Toast.makeText(this,"主人，作业已被批给，无法编辑",Toast.LENGTH_LONG).show();
         }
-        Toast.makeText(this,"主人，作业已被批给，无法编辑",Toast.LENGTH_LONG).show();
     }
 
     private void goViewHomework(int position){
@@ -73,7 +77,7 @@ public class Student_Homework_Activity extends AppCompatActivity implements Stud
     public void dowork(int position) {
         goDohomework(position);
     }
-
+ 
     @Override
     public void viewComment(int position) {
         if(rv_homework.get(position).getHomeworkByStudentIndex(student_index) != null){

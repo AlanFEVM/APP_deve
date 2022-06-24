@@ -15,6 +15,7 @@ public class StudentHomework {
         return submited;
     }
     public StudentHomework(int index){
+        buffer_answer = "";
         this.student_index = index;
         commented = false;
         submited = false;

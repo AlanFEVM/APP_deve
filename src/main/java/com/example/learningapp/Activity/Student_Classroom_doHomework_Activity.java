@@ -75,9 +75,6 @@ public class Student_Classroom_doHomework_Activity extends AppCompatActivity {
             if(!my_Homework.get_buffer_answer().matches("")){
                 answer.setText(my_Homework.get_buffer_answer());
             }
-        }else{
-            homeworkLists.get(homeworkindex).addHomework(student_index);
-            my_Homework = homeworkLists.get(homeworkindex).getHomeworkByStudentIndex(student_index);
         }
     }
     @Override

@@ -1,7 +1,5 @@
 package com.example.learningapp.Data.UserDataBase;
 
-import java.util.ArrayList;
-
 public abstract class Person {
     /*Person 类属于抽象类,只能创建Person的子类
     * 子类：Student Teacher*/
