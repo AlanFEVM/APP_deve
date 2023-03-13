@@ -97,13 +97,13 @@ public class Teacher_ClassRoom_Management_Activity extends AppCompatActivity {
     View.OnClickListener addStudentListener = v -> to_add_student();
 
     private void to_add_student() {
-        Intent intent = new Intent(this, AddStudentActivity.class);
+        Intent intent = new Intent(this, AddStudent_Activity.class);
         intent.putExtra("teacher_index", teacher_index);
         startActivity(intent);
     }
 
     private void goViewStudent() {
-        Intent intent = new Intent(this, ViewStudent_Activity.class);
+        Intent intent = new Intent(this, Teacher_ViewStudent_Activity.class);
         intent.putExtra("teacher_index", teacher_index);
         startActivity(intent);
     }
