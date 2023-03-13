@@ -31,6 +31,7 @@ public class Teacher_create_homework_activity extends AppCompatActivity {
             my_Data.user_data.getStudent(student_index).create_Message(classroom_index, "作业通知","教师发布了新的作业，请查看");
         }
         Toast.makeText(this,"作业布置成功",Toast.LENGTH_LONG).show();
+        goback();
     }
 
     private void createHomework(){

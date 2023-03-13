@@ -15,7 +15,7 @@ import com.example.learningapp.R;
 
 import java.util.ArrayList;
 
-public class ViewStudent_Activity extends AppCompatActivity {
+public class Teacher_ViewStudent_Activity extends AppCompatActivity {
     Intent lastI;
     int teacher_index;
     Button back_bt;

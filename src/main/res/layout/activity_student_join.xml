@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/card_background3"
-    tools:context=".Activity.Student_join_activity">
+    tools:context=".Activity.Student_JoinClassRoom_activity">
 
     <LinearLayout
         android:id="@+id/linearLayout3"

@@ -13,17 +13,17 @@ import com.example.learningapp.CustomViews.HideHintEditText;
 import com.example.learningapp.Data.my_Data;
 import com.example.learningapp.R;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     public Button login, signup;
     public RadioButton T_login, S_login;
     public HideHintEditText account, passW;
     String my_Account;
     String password;
 
-    View.OnClickListener l_listener = v -> LoginActivity();
+    View.OnClickListener l_listener = v -> Login();
     View.OnClickListener S_listener = v -> goSignup();
 
-    private void LoginActivity() {
+    private void Login() {
         Intent to_Student = new Intent(this, Student_Activity.class);
         Intent to_Teacher = new Intent(this, Teacher_Activity.class);
 
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         //首先创建我们的数据库，这里的数据库用的是一个静态类
         if (my_Data.user_data == null) {

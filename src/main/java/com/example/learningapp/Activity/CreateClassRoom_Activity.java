@@ -39,8 +39,8 @@ public class CreateClassRoom_Activity extends AppCompatActivity {
                 if (my_Data.checkClassRoomCodeValid(ET_code.getText().toString())) {
                     // 检测教室编号是否存在冲突
                     Create_class_room();
-                    Toast.makeText(this, "成功创建教室，请返回查看", Toast.LENGTH_LONG).show();
-                    cancel.setText("返回");
+                    Toast.makeText(this, "成功创建教室", Toast.LENGTH_LONG).show();
+                    goBack();
                 } else {
                     hint.setText("教室编号已存在，请尝试换一个");
                     hint.setVisibility(View.VISIBLE);

@@ -131,7 +131,7 @@ public class Sign_Up_Activity extends AppCompatActivity {
     }
 
     private void LogBack() {
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, LoginActivity.class));
     }
 
     View.OnClickListener backListener = v -> LogBack();

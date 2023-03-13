@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.LearningAPP" >
+        >
         <activity
             android:name=".Activity.Teacher_viewStudentHomework_Activity"
             android:exported="false" />
@@ -52,16 +52,16 @@
             android:name=".Activity.Student_ClassRoom_Activity"
             android:exported="false" />
         <activity
-            android:name=".Activity.Student_join_activity"
+            android:name=".Activity.Student_JoinClassRoom_activity"
             android:exported="false" />
         <activity
             android:name=".Activity.Student_enterClassRoom_Activity"
             android:exported="false" />
         <activity
-            android:name=".Activity.ViewStudent_Activity"
+            android:name=".Activity.Teacher_ViewStudent_Activity"
             android:exported="false" />
         <activity
-            android:name=".Activity.AddStudentActivity"
+            android:name=".Activity.AddStudent_Activity"
             android:exported="false" />
         <activity
             android:name=".Activity.Teacher_ClassRoom_Management_Activity"
@@ -70,7 +70,7 @@
             android:name=".Activity.CreateClassRoom_Activity"
             android:exported="false" />
         <activity
-            android:name=".Activity.EditInfoActivity"
+            android:name=".Activity.EditInfo_Activity"
             android:exported="false" />
         <activity
             android:name=".Activity.Sign_Up_Activity"
@@ -82,7 +82,7 @@
             android:name=".Activity.Teacher_Activity"
             android:exported="false" />
         <activity
-            android:name=".Activity.MainActivity"
+            android:name=".Activity.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

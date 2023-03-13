@@ -20,7 +20,7 @@ import com.example.learningapp.recyclerViewAdapter.SearchStudentDB_RV_Adapter;
 
 import java.util.ArrayList;
 
-public class AddStudentActivity extends AppCompatActivity implements SearchStudentDB_RV_Adapter.RV_btnListener {
+public class AddStudent_Activity extends AppCompatActivity implements SearchStudentDB_RV_Adapter.RV_btnListener {
     //------------variables--------------------
     Button search_butn,back,confirm = null;
     TextView name, code = null;

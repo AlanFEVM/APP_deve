@@ -19,7 +19,7 @@ public class Student_Activity extends AppCompatActivity {
     Intent lastIn;
     TextView name;
     private void logout_f(){
-        Intent intent = new Intent(this,MainActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
     View.OnClickListener logoutL = v -> {
@@ -39,7 +39,7 @@ public class Student_Activity extends AppCompatActivity {
         logout = findViewById(R.id.student_logout);
     }
     private void goJoinClassRoom_AC(){
-        Intent intent = new Intent(this,Student_join_activity.class);
+        Intent intent = new Intent(this, Student_JoinClassRoom_activity.class);
         intent.putExtra("student_index",student_index);
         startActivity(intent);
     }
@@ -60,7 +60,7 @@ public class Student_Activity extends AppCompatActivity {
 
 
     View.OnClickListener edit_listener = v -> {
-        Intent to_info = new Intent(this, EditInfoActivity.class);
+        Intent to_info = new Intent(this, EditInfo_Activity.class);
         to_info.putExtra("type", 0);
         to_info.putExtra("student_index", student_index);
         startActivity(to_info);

@@ -43,7 +43,7 @@ public class Teacher_Activity extends AppCompatActivity {
     }
 
     View.OnClickListener E_Listener = v -> {
-        Intent to_info = new Intent(this, EditInfoActivity.class);
+        Intent to_info = new Intent(this, EditInfo_Activity.class);
         to_info.putExtra("type", 1);
         to_info.putExtra("teacher_index", teacher_index);
         startActivity(to_info);
@@ -62,7 +62,7 @@ public class Teacher_Activity extends AppCompatActivity {
     };
 
     private void gologout(){
-        Intent intent = new Intent(this,MainActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
     @SuppressLint("SetTextI18n")
@@ -74,7 +74,7 @@ public class Teacher_Activity extends AppCompatActivity {
 
         if (teacher_index == -1) {
             Toast.makeText(this, "登录错误，请返回重试", Toast.LENGTH_SHORT).show();
-            Intent back = new Intent(this, MainActivity.class);
+            Intent back = new Intent(this, LoginActivity.class);
             startActivity(back);
         }
 

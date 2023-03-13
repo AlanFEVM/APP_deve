@@ -94,19 +94,18 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 >
+
                 <Button
                     android:id="@+id/teacher_checkIn_manage_card_view_unchecked"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="5dp"
-                    android:textSize="15sp"
-                    android:text="查看未签到的学生"
-                    android:backgroundTint="@color/LoginButtonColor"
-                    android:textColor="@color/LoginButtonTextColor"
                     android:layout_weight="1"
-                    >
-                </Button>
+                    android:backgroundTint="@color/LoginButtonColor"
+                    android:text="查看未签"
+                    android:textColor="@color/LoginButtonTextColor"
+                    android:textSize="15sp"></Button>
                 <Button
                     android:id="@+id/teacher_checkIn_manage_card_lockCheckIn"
                     android:layout_width="match_parent"

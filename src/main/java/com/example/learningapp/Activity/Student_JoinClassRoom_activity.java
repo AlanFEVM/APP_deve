@@ -18,7 +18,7 @@ import com.example.learningapp.Data.my_Data;
 
 import java.util.ArrayList;
 
-public class Student_join_activity extends AppCompatActivity implements ClassRoomSearch_RV_Adapter.class_room_button_click{
+public class Student_JoinClassRoom_activity extends AppCompatActivity implements ClassRoomSearch_RV_Adapter.class_room_button_click{
     ArrayList<Integer> Class_Room_Index_for_RV;
     Intent LastI;
     RecyclerView RV;

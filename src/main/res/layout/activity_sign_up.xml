@@ -37,6 +37,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
+                android:id="@+id/linearLayout18"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="15dp"
@@ -46,20 +47,21 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
+                <TextView
+                    android:id="@+id/textView24"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="账号创建"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textSize="24sp" />
+
                 <com.example.learningapp.CustomViews.HideHintEditText
                     android:id="@+id/signup_account"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/signup_account_hint"
                     android:inputType="text"
-                    android:text="" />
-
-                <com.example.learningapp.CustomViews.HideHintEditText
-                    android:id="@+id/signup_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/signup_name_hint"
-                    android:inputType="textPersonName"
                     android:text="" />
 
                 <com.example.learningapp.CustomViews.HideHintEditText
@@ -80,8 +82,79 @@
                     android:id="@+id/textView4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="选择您的身份"
+                    android:text="信息填写"
+                    android:layout_marginTop="15dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="性别"
                     android:textSize="20sp" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/signup_g_m"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="男"
+                        android:textSize="20sp" />
+
+                    <RadioButton
+                        android:id="@+id/signup_g_f"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="女"
+                        android:textSize="20sp" />
+                </RadioGroup>
+
+                <com.example.learningapp.CustomViews.HideHintEditText
+                    android:id="@+id/signup_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/signup_name_hint"
+                    android:inputType="textPersonName"
+                    android:text="" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6"
+                        android:text="年龄"
+                        android:textSize="20sp" />
+
+                    <com.example.learningapp.CustomViews.HideHintEditText
+                        android:id="@+id/signup_age"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView25"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="身份选择"
+                    android:layout_marginTop="15dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textSize="24sp" />
 
                 <RadioGroup
                     android:layout_width="match_parent"
@@ -114,95 +187,47 @@
                     android:text="" />
 
                 <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="性别"
-                    android:textSize="20sp" />
-
-                <RadioGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:id="@+id/signup_g_m"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="男"
-                        android:textSize="20sp" />
-
-                    <RadioButton
-                        android:id="@+id/signup_g_f"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="女"
-                        android:textSize="20sp" />
-                </RadioGroup>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/textView6"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="6"
-                        android:text="年龄"
-                        android:textSize="20sp" />
-
-                    <com.example.learningapp.CustomViews.HideHintEditText
-                        android:id="@+id/signup_age"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:inputType="number"
-                        android:text="" />
-
-                </LinearLayout>
-
-                <TextView
+                    android:layout_marginTop="20dp"
                     android:id="@+id/signup_hint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text=""
+                    android:text="Java.Exception.IndexOutofBound"
                     android:textColor="@color/red"
                     android:textSize="20sp" />
 
-                <LinearLayout
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/linearLayout18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+
+                <Button
+                    android:id="@+id/signup_back"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/LoginButtonColor"
+                    android:text="返回"
+                    android:textColor="@color/LoginButtonTextColor"
+                    android:textSize="20sp" />
 
-
-                    <Button
-                        android:id="@+id/signup_back"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="15dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="@color/LoginButtonColor"
-                        android:text="返回"
-                        android:textColor="@color/LoginButtonTextColor"
-                        android:textSize="20sp" />
-
-                    <Button
-                        android:id="@+id/signup_button"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginHorizontal="15dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="@color/LoginButtonColor"
-                        android:text="注册-->"
-                        android:textColor="@color/LoginButtonTextColor"
-                        android:textSize="20sp" />
-                </LinearLayout>
-
+                <Button
+                    android:id="@+id/signup_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/LoginButtonColor"
+                    android:text="注册-->"
+                    android:textColor="@color/LoginButtonTextColor"
+                    android:textSize="20sp" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>

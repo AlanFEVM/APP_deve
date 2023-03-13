@@ -16,7 +16,7 @@ import com.example.learningapp.Data.UserDataBase.Student;
 import com.example.learningapp.Data.my_Data;
 import com.example.learningapp.R;
 
-public class EditInfoActivity extends AppCompatActivity {
+public class EditInfo_Activity extends AppCompatActivity {
     // -----------------------------------variables------------------------------------------------
     Button edit_info_button, change_password_button, pwd_confirm_button,back;
     LinearLayout edit_info_layout, change_password_layout;
