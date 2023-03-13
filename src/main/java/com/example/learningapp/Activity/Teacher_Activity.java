@@ -60,11 +60,13 @@ public class Teacher_Activity extends AppCompatActivity {
     View.OnClickListener logoutL = v -> {
         gologout();
     };
+
     private void gologout(){
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
     }
     @SuppressLint("SetTextI18n")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

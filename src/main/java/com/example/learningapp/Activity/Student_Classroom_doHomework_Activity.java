@@ -28,6 +28,7 @@ public class Student_Classroom_doHomework_Activity extends AppCompatActivity {
     TextView content;
     EditText answer;
     Button back, submit;
+
     private void goback(){
         if(!answer.getText().toString().matches("")){
             my_Homework.set_buffer_answer(answer.getText().toString());
@@ -57,10 +58,12 @@ public class Student_Classroom_doHomework_Activity extends AppCompatActivity {
     View.OnClickListener submit_L = v -> {
         dosubmit();
     };
+
     private void catchData(){
         title.setText(homeworkLists.get(homeworkindex).getTitle());
         content.setText(homeworkLists.get(homeworkindex).getContent());
     }
+
     private void findViews(){
         title = findViewById(R.id.student_dohomework_title);
         content =findViewById(R.id.student_dohomework_content);

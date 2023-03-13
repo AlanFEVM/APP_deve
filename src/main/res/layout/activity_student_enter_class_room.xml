@@ -7,32 +7,36 @@
     android:background="@drawable/card_background3"
     tools:context=".Activity.Student_enterClassRoom_Activity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/student_enter_classroom_RV"
-        android:padding="10dp"
+    <LinearLayout
+        android:id="@+id/linearLayout16"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/student_enter_classroom_back_btn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    </androidx.recyclerview.widget.RecyclerView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/student_enter_classroom_RV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="20dp"
+            android:layout_weight="1"
+            android:padding="10dp">
 
-    <Button
-        android:id="@+id/student_enter_classroom_back_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="25sp"
-        android:layout_marginBottom="4dp"
-        android:backgroundTint="@color/LoginButtonColor"
-        android:textColor="@color/LoginButtonTextColor"
-        android:text="返回"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <Button
+            android:id="@+id/student_enter_classroom_back_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="bottom"
+
+            android:backgroundTint="@color/LoginButtonColor"
+
+            android:text="返回"
+            android:textColor="@color/LoginButtonTextColor"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

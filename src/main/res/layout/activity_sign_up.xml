@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background2"
     tools:context=".Activity.Sign_Up_Activity">
 
     <LinearLayout
@@ -11,23 +12,24 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/card_background2"
             android:gravity="center"
             android:text="新用户注册"
             android:textColor="@color/white"
             android:textSize="30sp" />
 
-        <FrameLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/background2"
+            android:layout_height="match_parent"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -37,14 +39,17 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginHorizontal="30dp"
-                android:orientation="vertical">
+                android:layout_marginHorizontal="15dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <com.example.learningapp.CustomViews.HideHintEditText
                     android:id="@+id/signup_account"
                     android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:ems="10"
+                    android:layout_height="wrap_content"
                     android:hint="@string/signup_account_hint"
                     android:inputType="text"
                     android:text="" />
@@ -52,8 +57,7 @@
                 <com.example.learningapp.CustomViews.HideHintEditText
                     android:id="@+id/signup_name"
                     android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:ems="10"
+                    android:layout_height="wrap_content"
                     android:hint="@string/signup_name_hint"
                     android:inputType="textPersonName"
                     android:text="" />
@@ -61,16 +65,14 @@
                 <com.example.learningapp.CustomViews.HideHintEditText
                     android:id="@+id/signup_password"
                     android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:ems="10"
+                    android:layout_height="wrap_content"
                     android:hint="@string/signup_hint_password"
                     android:inputType="textPassword" />
 
                 <com.example.learningapp.CustomViews.HideHintEditText
                     android:id="@+id/signup_password2"
                     android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:ems="10"
+                    android:layout_height="wrap_content"
                     android:hint="@string/signup_hint_password_2"
                     android:inputType="textPassword" />
 
@@ -106,8 +108,7 @@
                 <com.example.learningapp.CustomViews.MultiHintEditText
                     android:id="@+id/signup_code"
                     android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:ems="10"
+                    android:layout_height="wrap_content"
                     android:hint="@string/signup_code_initial_hint"
                     android:inputType="number"
                     android:text="" />
@@ -148,25 +149,19 @@
 
                     <TextView
                         android:id="@+id/textView6"
-                        android:layout_width="1dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="5"
+                        android:layout_weight="6"
                         android:text="年龄"
                         android:textSize="20sp" />
 
                     <com.example.learningapp.CustomViews.HideHintEditText
                         android:id="@+id/signup_age"
-                        android:layout_width="113dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:ems="10"
                         android:inputType="number"
                         android:text="" />
-
-                    <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="16" />
 
                 </LinearLayout>
 
@@ -175,40 +170,40 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="--------------------------------------------------"
+                    android:text=""
                     android:textColor="@color/red"
                     android:textSize="20sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
 
                     <Button
                         android:id="@+id/signup_back"
-                        android:layout_width="wrap_content"
-                        android:layout_height="65dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginHorizontal="15dp"
                         android:layout_weight="1"
                         android:backgroundTint="@color/LoginButtonColor"
                         android:text="返回"
                         android:textColor="@color/LoginButtonTextColor"
-                        android:textSize="35sp" />
+                        android:textSize="20sp" />
 
                     <Button
                         android:id="@+id/signup_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="65dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_marginHorizontal="15dp"
                         android:layout_weight="1"
                         android:backgroundTint="@color/LoginButtonColor"
-                        android:text="注册"
+                        android:text="注册-->"
                         android:textColor="@color/LoginButtonTextColor"
-                        android:textSize="35sp" />
+                        android:textSize="20sp" />
                 </LinearLayout>
 
             </LinearLayout>
-        </FrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

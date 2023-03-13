@@ -7,42 +7,45 @@
     android:background="@drawable/card_background5"
     tools:context=".Activity.Student_Homework_Activity">
 
-    <TextView
-        android:id="@+id/textView17"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:textSize="25sp"
-        android:textColor="@color/white"
-        android:background="@drawable/card_background4"
-        android:layout_height="wrap_content"
-        android:text="作业管理"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/student_homework_recyclerView"
-        android:layout_marginHorizontal="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/student_homework_back_btn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_background4"
+            android:gravity="center"
+            android:text="作业管理"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
 
-    <Button
-        android:id="@+id/student_homework_back_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:backgroundTint="@color/LoginButtonColor"
-        android:text="返回"
-        android:textColor="@color/LoginButtonTextColor"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/student_homework_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="20dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/student_homework_back_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="20dp"
+                android:layout_weight="8"
+                android:backgroundTint="@color/LoginButtonColor"
+                android:text="返回"
+                android:textColor="@color/LoginButtonTextColor"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
