@@ -10,13 +10,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
 
-            android:layout_height="650dp"
+            android:layout_height="match_parent"
             android:layout_margin="10dp"
+            android:layout_weight="1"
             app:cardCornerRadius="30dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -43,9 +48,10 @@
         <Button
             android:id="@+id/view_Student_back"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_marginHorizontal="50dp"
+            android:layout_weight="9"
             android:backgroundTint="@color/LoginButtonColor"
             android:text="返回"
             android:textColor="@color/LoginButtonTextColor"

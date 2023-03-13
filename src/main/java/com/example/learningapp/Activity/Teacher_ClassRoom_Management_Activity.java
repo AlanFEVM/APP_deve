@@ -19,9 +19,7 @@ public class Teacher_ClassRoom_Management_Activity extends AppCompatActivity {
     Button view_student_btn, add_student_btn, add_checkin_btn, random_pickup_btn, homework_btn,manageHomework, get_back_btn, manage_checkin;
     TextView class_name, class_code, class_student_num;
     Intent lastI;
-    View.OnClickListener checkin_L = v -> {
-        goCreateCheckIn();
-    };
+
 
     private void log_back() {
         Intent back = new Intent(this, Teacher_Activity.class);
@@ -29,10 +27,6 @@ public class Teacher_ClassRoom_Management_Activity extends AppCompatActivity {
         startActivity(back);
     }
 
-    View.OnClickListener Back_listener = v -> log_back();
-    View.OnClickListener manage_checkinL = v -> {
-        goManageCheckins();
-    };
     private void goManageCheckins(){
         Intent intent = new Intent(this, Teacher_Manage_Checkin_Activity.class);
         intent.putExtra("teacher_index",teacher_index);
@@ -56,23 +50,19 @@ public class Teacher_ClassRoom_Management_Activity extends AppCompatActivity {
         intent.putExtra("classroom_index",classroom_index);
         startActivity(intent);
     }
-    View.OnClickListener random_pickup_L = v -> {
-        if(my_Data.find_ClassRoomByTeacherIndex(teacher_index).getMy_student().size()!=0){
-            int randS = my_Data.find_ClassRoomByTeacherIndex(teacher_index).random_pickup();
-            Toast.makeText(this,"抽到的学生为 " + my_Data.user_data.getStudent(randS).getName(),Toast.LENGTH_LONG).show();
-            my_Data.user_data.getStudent(randS).
-                    create_Message(my_Data.user_data.getTeacher(teacher_index).getClassroom_index(), "随机点名", "你被抽中啦");
-        }else{
-            Toast.makeText(this,"班级中还没有学生，功能不可用",Toast.LENGTH_LONG).show();
-        }
 
-    };
-    View.OnClickListener homework_L = v -> {
-        goCreateHomeWork();
-    };
-    View.OnClickListener manageHomeworkL = v -> {
-        gomanageHomework();
-    };
+    private void to_add_student() {
+        Intent intent = new Intent(this, AddStudentActivity.class);
+        intent.putExtra("teacher_index", teacher_index);
+        startActivity(intent);
+    }
+
+    private void goViewStudent() {
+        Intent intent = new Intent(this, ViewStudent_Activity.class);
+        intent.putExtra("teacher_index", teacher_index);
+        startActivity(intent);
+    }
+
     private void setListener() {
         get_back_btn.setOnClickListener(Back_listener);
         add_checkin_btn.setOnClickListener(checkin_L);
@@ -95,20 +85,27 @@ public class Teacher_ClassRoom_Management_Activity extends AppCompatActivity {
         manage_checkin = findViewById(R.id.class_room_manage_managecheckins);
         manageHomework = findViewById(R.id.class_room_manage_homework);
     }
+
     View.OnClickListener addStudentListener = v -> to_add_student();
-
-    private void to_add_student() {
-        Intent intent = new Intent(this, AddStudentActivity.class);
-        intent.putExtra("teacher_index", teacher_index);
-        startActivity(intent);
-    }
-
-    private void goViewStudent() {
-        Intent intent = new Intent(this, ViewStudent_Activity.class);
-        intent.putExtra("teacher_index", teacher_index);
-        startActivity(intent);
-    }
+    View.OnClickListener homework_L = v -> goCreateHomeWork();
+    View.OnClickListener manageHomeworkL = v -> gomanageHomework();
+    View.OnClickListener checkin_L = v -> goCreateCheckIn();
+    View.OnClickListener Back_listener = v -> log_back();
+    View.OnClickListener manage_checkinL = v -> goManageCheckins();
     View.OnClickListener viewStudentBtnListener = v -> goViewStudent();
+    View.OnClickListener random_pickup_L = v -> {
+        if(my_Data.find_ClassRoomByTeacherIndex(teacher_index).getMy_student().size()!=0){
+            int randS = my_Data.find_ClassRoomByTeacherIndex(teacher_index).random_pickup();
+            Toast.makeText(this,"抽到的学生为 " + my_Data.user_data.getStudent(randS).getName(),Toast.LENGTH_LONG).show();
+            my_Data.user_data.getStudent(randS).
+                    create_Message(my_Data.user_data.getTeacher(teacher_index).getClassroom_index(), "随机点名", "你被抽中啦");
+        }else{
+            Toast.makeText(this,"班级中还没有学生，功能不可用",Toast.LENGTH_LONG).show();
+        }
+    };
+
+
+
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
