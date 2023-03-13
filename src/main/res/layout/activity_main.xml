@@ -4,146 +4,146 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/loginbackground"
     tools:context=".Activity.MainActivity">
 
-    <FrameLayout
+    <LinearLayout
+        android:id="@+id/linearLayout17"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:backgroundTint="@color/myGray"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/AppTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="学习通模拟器"
+            android:textColor="@color/black"
+            android:textSize="34sp" />
+
+        <TextView
+            android:id="@+id/AppTitle_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="学习，是一种信仰"
+            android:textColor="@color/myGray"
+            android:textSize="25sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/loginbackground"
-            android:orientation="vertical">
+            android:layout_marginTop="30dp"
+            android:background="@color/InputAreaColor"
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/AppTitle"
-                android:layout_width="match_parent"
+            <com.example.learningapp.CustomViews.HideHintEditText
+                android:id="@+id/Account"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:text="学习通模拟器"
-                android:textColor="@color/black"
-                android:textSize="34sp" />
+                android:layout_marginHorizontal="30dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/Input_User_Hint"
+                android:inputType="textPersonName"
+                android:text=""
+                android:textSize="20sp" />
+        </LinearLayout>
 
-            <TextView
-                android:id="@+id/AppTitle_2"
-                android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@color/InputAreaColor"
+            android:orientation="horizontal">
+
+            <com.example.learningapp.CustomViews.HideHintEditText
+                android:id="@+id/Password"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:text="学习，是一种信仰"
-                android:textColor="@color/myGray"
-                android:textSize="25sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="360dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/LoginButtonSignup"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_weight="0.5"
-                    android:backgroundTint="@color/LoginButtonColor"
-                    android:text="注册"
-                    android:textColor="@color/LoginButtonTextColor"
-                    android:textSize="30sp" />
-
-                <Button
-                    android:id="@+id/logInButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_weight="0.5"
-                    android:backgroundTint="@color/LoginButtonColor"
-                    android:text="登录"
-                    android:textColor="@color/LoginButtonTextColor"
-                    android:textSize="30sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:background="@color/InputAreaColor"
-                android:orientation="horizontal">
-
-                <com.example.learningapp.CustomViews.HideHintEditText
-                    android:id="@+id/Account"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="30dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="@string/Input_User_Hint"
-                    android:inputType="textPersonName"
-                    android:text=""
-                    android:textSize="20sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:background="@color/InputAreaColor"
-                android:orientation="horizontal">
-
-                <com.example.learningapp.CustomViews.HideHintEditText
-                    android:id="@+id/Password"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="30dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="输入密码"
-                    android:inputType="textPassword"
-                    android:text=""
-                    android:textSize="20sp" />
-
-            </LinearLayout>
-
-            <RadioGroup
-                android:id="@+id/Login_Type"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/radioButtonBackroundColor"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/Teacher_Login"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:layout_weight="1"
-                    android:paddingStart="20dp"
-                    android:text="@string/isTeacher"
-                    android:textSize="20sp"
-                    tools:ignore="RtlSymmetry" />
-
-                <RadioButton
-                    android:id="@+id/Student_Login"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="50dp"
-                    android:layout_weight="1"
-                    android:paddingStart="20dp"
-                    android:text="@string/isStudent"
-                    android:textSize="20sp"
-                    tools:ignore="RtlSymmetry" />
-            </RadioGroup>
+                android:layout_marginHorizontal="30dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="输入密码"
+                android:inputType="textPassword"
+                android:text=""
+                android:textSize="20sp" />
 
         </LinearLayout>
 
-    </FrameLayout>
+        <RadioGroup
+            android:id="@+id/Login_Type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/radioButtonBackroundColor"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/Teacher_Login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_weight="1"
+                android:text="@string/isTeacher"
+                android:textSize="20sp"
+                tools:ignore="RtlSymmetry" />
+
+            <RadioButton
+                android:id="@+id/Student_Login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:layout_weight="1"
+                android:text="@string/isStudent"
+                android:textSize="20sp"
+                tools:ignore="RtlSymmetry" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/LoginButtonSignup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="20dp"
+                android:layout_weight="0.5"
+                android:backgroundTint="@color/LoginButtonColor"
+                android:text="注册"
+                android:textColor="@color/LoginButtonTextColor"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/logInButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="20dp"
+                android:layout_weight="0.5"
+                android:backgroundTint="@color/LoginButtonColor"
+                android:text="登录"
+                android:textColor="@color/LoginButtonTextColor"
+                android:textSize="30sp" />
+        </LinearLayout>
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
